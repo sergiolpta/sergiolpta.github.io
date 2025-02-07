@@ -198,7 +198,12 @@
             </div>
         </section>
 
-        <!-- Nova Seção Contato -->
+        <!-- Adicione a seção FAQ antes do contato -->
+        <section id="faq" class="faq-section">
+            <div id="faq-container"></div>
+        </section>
+
+        <!-- Seção contato... -->
         <section id="contato" class="contact">
             <h2>Entre em Contato</h2>
             <div class="contact-container">
@@ -235,8 +240,6 @@
                 </div>
             </div>
         </section>
-
-        <div id="faq-container"></div>
     </main>
 
     <footer>
@@ -367,8 +370,31 @@
         }
     </script>
 
-    <script src="faq.js"></script>
     <script>
+        // Primeiro definimos a função FAQ
+        function FAQ() {
+            const faqItems = [
+                {
+                    question: "O que é automação residencial?",
+                    answer: "Automação residencial é um conjunto de tecnologias que permite controlar diversos aspectos da sua casa como iluminação, climatização, segurança e entretenimento de forma integrada e inteligente."
+                },
+                // ... resto das perguntas ...
+            ];
+
+            return `<section class="faq-section">
+                <h2 class="faq-title">Perguntas Frequentes</h2>
+                <div class="faq-list">
+                    ${faqItems.map((item, index) => `
+                        <details class="faq-item">
+                            <summary class="faq-question">${item.question}</summary>
+                            <p class="faq-answer">${item.answer}</p>
+                        </details>
+                    `).join('')}
+                </div>
+            </section>`;
+        }
+
+        // Depois executamos
         document.getElementById('faq-container').innerHTML = FAQ();
     </script>
 </body>
