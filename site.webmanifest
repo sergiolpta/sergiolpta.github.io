@@ -1,0 +1,21 @@
+{
+    "name": "Nexus Home LP",
+    "short_name": "Nexus Home",
+    "description": "Soluções em automação residencial e comercial",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#1a2a3a",
+    "theme_color": "#4FB4FF",
+    "icons": [
+        {
+            "src": "images/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "images/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+} 
