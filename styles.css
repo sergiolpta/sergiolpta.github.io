@@ -598,4 +598,41 @@ details[open] .faq-question::after {
   padding: 1rem 0;
   color: #666;
   line-height: 1.6;
+}
+
+/* Estilos para a seção Quem Somos */
+.about-us {
+    padding: 5rem 1rem;
+    background-color: var(--blue-bg-alt);
+    text-align: center;
+}
+
+.about-us h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.about-us p {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.about-us-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-item h3 {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.about-item p {
+    color: var(--text-color);
+    line-height: 1.6;
 } 
