@@ -43,7 +43,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 5%;
+    padding: 1rem 5%;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -56,8 +56,9 @@ nav {
 }
 
 .logo img {
-    height: 70px;
+    height: 90px;
     width: auto;
+    margin-left: -10px;
 }
 
 .company-name {
