@@ -1,0 +1,3 @@
+echo "User-agent: *
+Allow: /
+Sitemap: https://nexushomelp.tec.br/sitemap.xml" > robots.txt
