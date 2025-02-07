@@ -483,7 +483,7 @@ footer {
 /* Responsividade */
 @media (max-width: 768px) {
     .nav-links {
-        display: none; /* Será substituído pelo menu mobile */
+        display: none; /* Esconder menu de navegação em telas pequenas */
     }
 
     .contact-container {
@@ -491,17 +491,31 @@ footer {
     }
 
     .hero h2 {
-        font-size: 2rem;
+        font-size: 2rem; /* Ajustar tamanho da fonte do título */
     }
 
-    .features h2 {
-        text-align: center;
-        padding-right: 0;
+    .services-grid {
+        grid-template-columns: 1fr; /* Ajustar para uma coluna em telas menores */
+    }
+
+    .service-card {
+        min-width: 100%; /* Garantir que os cards ocupem toda a largura disponível */
     }
 
     .features-grid {
-        padding-left: 1rem;
-        padding-right: 1rem;
+        grid-template-columns: 1fr; /* Ajustar para uma coluna em telas menores */
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr; /* Ajustar para uma coluna em telas menores */
+    }
+
+    .faq-section {
+        padding: 3rem 1rem; /* Ajustar o padding para telas menores */
+    }
+
+    .faq-title {
+        font-size: 1.5rem; /* Ajustar tamanho da fonte do título do FAQ */
     }
 
     .logo img {
