@@ -65,10 +65,10 @@ nav {
 .company-name {
     font-family: 'Quicksand', sans-serif;
     font-weight: 800;
-    font-size: 3.2rem;
+    font-size: 3rem;
     color: #4FB4FF;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    letter-spacing: 0.5px;
+    letter-spacing: 0.2px;
     transition: var(--transition);
     white-space: nowrap;
 }
@@ -243,7 +243,7 @@ nav {
     }
 
     .company-name {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 }
 
@@ -524,7 +524,7 @@ footer {
     }
     
     .company-name {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
     }
 }
 
