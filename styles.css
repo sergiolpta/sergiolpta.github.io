@@ -249,7 +249,7 @@ nav {
 
 /* Serviços */
 .services {
-    padding: 5rem 1rem;
+    padding: 3rem 1rem;
     background: var(--blue-bg);
 }
 
@@ -306,7 +306,7 @@ nav {
 
 /* Diferenciais */
 .features {
-    padding: 5rem 1rem;
+    padding: 3rem 1rem;
     background: var(--blue-bg-alt);
 }
 
@@ -354,7 +354,7 @@ nav {
 
 /* Formulário de Contato */
 .contact {
-    padding: 5rem 1rem;
+    padding: 3rem 1rem;
     background: var(--blue-bg);
 }
 
@@ -548,7 +548,7 @@ img {
 .faq-section {
   max-width: 800px;
   margin: 0 auto;
-  padding: 5rem 1rem;
+  padding: 3rem 1rem;
   background-color: var(--blue-bg);
   width: 100%;
 }
@@ -603,7 +603,7 @@ details[open] .faq-question::after {
 
 /* Estilos para a seção Quem Somos */
 .about-us {
-    padding: 5rem 1rem;
+    padding: 3rem 1rem;
     background-color: var(--blue-bg-alt);
     text-align: center;
 }
