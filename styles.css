@@ -299,9 +299,7 @@ nav {
 /* Ajuste responsivo */
 @media (max-width: 1024px) {
     .services-grid {
-        grid-template-columns: repeat(5, 200px); /* Largura fixa para cada card */
-        justify-content: start; /* Alinha os cards à esquerda */
-        padding-bottom: 1rem; /* Espaço para a barra de rolagem */
+        grid-template-columns: repeat(2, 1fr); /* Ajustar número de colunas */
     }
 }
 
@@ -493,7 +491,7 @@ footer {
     }
 
     .hero h2 {
-        font-size: 2rem; /* Ajustar tamanho da fonte do título */
+        font-size: 2.5rem; /* Ajustar tamanho da fonte para telas pequenas */
     }
 
     .services-grid {
@@ -637,4 +635,34 @@ details[open] .faq-question::after {
 .about-item p {
     color: var(--text-color);
     line-height: 1.6;
+}
+
+/* Ajustes responsivos para telas grandes */
+@media (min-width: 1200px) {
+    .hero h2 {
+        font-size: 3.5rem; /* Ajustar tamanho da fonte para telas grandes */
+    }
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr); /* Ajustar número de colunas */
+    }
+}
+
+/* Ajustes responsivos para telas médias */
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr); /* Ajustar número de colunas */
+    }
+}
+
+/* Ajustes responsivos para telas pequenas */
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 2.5rem; /* Ajustar tamanho da fonte para telas pequenas */
+    }
+    .services-grid {
+        grid-template-columns: 1fr; /* Ajustar para uma coluna em telas menores */
+    }
+    .nav-links {
+        display: none; /* Esconder menu de navegação em telas pequenas */
+    }
 } 
