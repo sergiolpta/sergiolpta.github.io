@@ -51,7 +51,7 @@ nav {
 .logo {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
     flex: 1;
     margin-left: 0;
     justify-content: flex-start;
@@ -243,7 +243,7 @@ nav {
     }
 
     .company-name {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 }
 
