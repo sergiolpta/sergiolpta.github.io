@@ -53,12 +53,13 @@ nav {
     align-items: center;
     gap: 1.5rem;
     flex: 1;
+    margin-left: 0;
+    justify-content: flex-start;
 }
 
 .logo img {
     height: 90px;
     width: auto;
-    margin-left: -10px;
 }
 
 .company-name {
