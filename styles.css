@@ -483,12 +483,34 @@ footer {
 
 /* Responsividade */
 @media (max-width: 768px) {
+    /* Ajustes gerais */
+    body {
+        font-size: 14px;
+    }
+
+    /* Simplificar o layout */
     .nav-links {
         display: none; /* Esconder menu de navegação em telas pequenas */
     }
 
+    .hero {
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .services-grid,
+    .features-grid,
     .contact-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Ajustar para uma coluna em telas menores */
+    }
+
+    .service-card,
+    .feature-item {
+        min-width: 100%; /* Garantir que os cards ocupem toda a largura disponível */
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr; /* Ajustar para uma coluna em telas menores */
     }
 
     .hero h2 {
@@ -690,4 +712,40 @@ details[open] .faq-question::after {
 .hero-image:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.social-share {
+    padding: 2rem 1rem;
+    background-color: var(--blue-bg);
+    text-align: center;
+}
+
+.social-share h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-buttons a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.social-buttons a:hover {
+    background-color: var(--primary-color);
 } 
