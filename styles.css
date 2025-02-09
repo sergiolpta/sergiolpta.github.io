@@ -492,7 +492,11 @@ footer {
     }
 
     .hero h2 {
-        font-size: 2.5rem; /* Ajustar tamanho da fonte para telas pequenas */
+        font-size: 2rem; /* Ajustar tamanho da fonte para telas pequenas */
+    }
+
+    .hero p {
+        font-size: 1rem; /* Ajustar tamanho da fonte para telas pequenas */
     }
 
     .services-grid {
@@ -512,7 +516,7 @@ footer {
     }
 
     .faq-section {
-        padding: 3rem 1rem; /* Ajustar o padding para telas menores */
+        padding: 2rem 1rem; /* Ajustar o padding para telas menores */
     }
 
     .faq-title {
@@ -520,11 +524,11 @@ footer {
     }
 
     .logo img {
-        height: 60px;
+        height: 50px; /* Ajustar tamanho do logotipo */
     }
     
     .company-name {
-        font-size: 1.8rem;
+        font-size: 1.5rem; /* Ajustar tamanho da fonte do nome da empresa */
     }
 }
 
