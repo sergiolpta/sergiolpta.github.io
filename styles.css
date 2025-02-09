@@ -1,145 +1,150 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Soluções completas em automação residencial e comercial.">
-    <meta name="keywords" content="automação residencial, automação comercial, sonorização, home theater">
-    <meta name="author" content="Nexus Home LP">
-    <title>Nexus Home LP - Automação Residencial e Comercial</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="logo.png" alt="Logo da Nexus Home LP" loading="lazy">
-                <span class="company-name">Nexus Home LP</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#quem-somos">Quem Somos</a></li>
-                <li><a href="#faq">Perguntas Frequentes</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+/* Variáveis CSS */
+:root {
+    --primary-color: #2C3E50;
+    --secondary-color: #3498DB;
+    --header-bg: #1a2a3a;
+    --accent-color: #E74C3C;
+    --text-color: #333;
+    --light-gray: #f5f5f5;
+    --white: #ffffff;
+    --blue-bg: #EBF3FA;
+    --blue-bg-alt: #E1EBF5;
+    --shadow: 0 2px 15px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
 
-    <main>
-        <!-- Hero Section -->
-        <section id="inicio" class="hero">
-            <h2>Tecnologia e conforto em perfeita harmonia</h2>
-            <p>Soluções completas em automação residencial, comercial, sonorização, home theater e iluminação.</p>
-            <div class="hero-icons">
-                <div class="icon-item">
-                    <i class="tech-icon">💡</i>
-                    <span>Luminotécnica</span>
-                    <div class="icon-details">Projetos de iluminação que combinam estética e eficiência energética.</div>
-                </div>
-                <div class="icon-item">
-                    <i class="tech-icon">🔒</i>
-                    <span>Segurança</span>
-                    <div class="icon-details">Câmeras IP, alarmes e controle de acesso integrados.</div>
-                </div>
-                <div class="icon-item">
-                    <i class="tech-icon">🎵</i>
-                    <span>Sonorização</span>
-                    <div class="icon-details">Sistemas de áudio multiroom com qualidade profissional.</div>
-                </div>
-            </div>
-        </section>
+/* Reset e estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        <!-- Serviços Section -->
-        <section id="servicos" class="services">
-            <h2>Nossos Serviços</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="icon">🏠</i>
-                    <h3>Automação Residencial</h3>
-                    <p>Transforme sua casa em um ambiente inteligente e conectado.</p>
-                </div>
-                <div class="service-card">
-                    <i class="icon">🏢</i>
-                    <h3>Automação Comercial</h3>
-                    <p>Soluções inteligentes para empresas, otimizando processos.</p>
-                </div>
-                <div class="service-card">
-                    <i class="icon">🎶</i>
-                    <h3>Sonorização</h3>
-                    <p>Sistemas de áudio profissional para ambientes residenciais e comerciais.</p>
-                </div>
-            </div>
-        </section>
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    scroll-behavior: smooth;
+}
 
-        <!-- Quem Somos Section -->
-        <section id="quem-somos" class="about-us">
-            <h2>Quem Somos</h2>
-            <p>A Nexus Home LP é uma empresa dedicada a transformar ambientes através da automação inteligente.</p>
-            <div class="about-us-details">
-                <div class="about-item">
-                    <h3>Missão</h3>
-                    <p>Proporcionar soluções inovadoras em automação que melhorem a qualidade de vida.</p>
-                </div>
-                <div class="about-item">
-                    <h3>Visão</h3>
-                    <p>Ser referência em automação residencial e comercial.</p>
-                </div>
-            </div>
-        </section>
+/* Header e Navegação */
+header {
+    background: var(--header-bg);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
 
-        <!-- Perguntas Frequentes Section -->
-        <section id="faq" class="faq-section">
-            <h2>Perguntas Frequentes</h2>
-            <ul class="faq-list">
-                <li class="faq-item">
-                    <details>
-                        <summary class="faq-question">O que é automação residencial?</summary>
-                        <p class="faq-answer">Automação residencial é um conjunto de tecnologias que permite controlar diversos aspectos da sua casa.</p>
-                    </details>
-                </li>
-                <li class="faq-item">
-                    <details>
-                        <summary class="faq-question">O que é Zigbee?</summary>
-                        <p class="faq-answer">Zigbee é um protocolo de comunicação sem fio específico para automação.</p>
-                    </details>
-                </li>
-            </ul>
-        </section>
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
 
-        <!-- Contato Section -->
-        <section id="contato" class="contact">
-            <h2>Entre em Contato</h2>
-            <div class="contact-container">
-                <form action="/submit" method="POST">
-                    <input type="text" name="name" placeholder="Nome" required>
-                    <input type="email" name="email" placeholder="Email" required>
-                    <textarea name="message" placeholder="Mensagem" required></textarea>
-                    <button type="submit">Enviar</button>
-                </form>
-                <div class="contact-info">
-                    <h3>Informações de Contato</h3>
-                    <p><a href="tel:+5514999101050">(14) 99910-1050</a></p>
-                    <p><a href="mailto:nexushomelp@gmail.com">nexushomelp@gmail.com</a></p>
-                </div>
-            </div>
-        </section>
-    </main>
+.logo img {
+    height: 90px;
+    width: auto;
+}
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-links">
-                <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-            </div>
-            <div class="copyright">
-                © 2024 Nexus Home LP. Todos os direitos reservados.
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+.company-name {
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--white);
+    transition: var(--transition);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-icons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.tech-icon {
+    font-size: 2.5rem;
+    color: var(--white);
+    transition: var(--transition);
+}
+
+.icon-details {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(26, 42, 58, 0.95);
+    padding: 1rem;
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.icon-item:hover .icon-details {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Serviços Section */
+.services {
+    padding: 3rem 1rem;
+    background: var(--blue-bg);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
