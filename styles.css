@@ -839,8 +839,8 @@ section {
 .post-content {
     max-width: 800px;
     margin: 0 auto;
-    padding: 2rem 1rem;
-    line-height: 1.6;
+    padding: 3rem 2rem;
+    line-height: 1.8;
     color: var(--text-color);
     background-color: var(--white);
     border-radius: 8px;
@@ -850,11 +850,11 @@ section {
 .post-content h1 {
     font-size: 2.5rem;
     color: var(--primary-color);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     text-align: center;
 }
 
 .post-content p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     text-align: justify;
 } 
