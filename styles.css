@@ -808,6 +808,7 @@ section {
 .blog-post img {
     width: 100%;
     height: auto;
+    max-width: 300px;
 }
 
 .blog-post h3 {
