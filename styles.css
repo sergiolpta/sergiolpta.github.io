@@ -806,8 +806,8 @@ section {
 }
 
 .blog-post img {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     max-width: none;
     object-fit: cover;
 }
