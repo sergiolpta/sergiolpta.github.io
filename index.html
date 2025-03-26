@@ -604,13 +604,13 @@
             <h2>Últimas Notícias</h2>
             <div class="blog-grid">
                 <article class="blog-post">
-                    <img src="images/zigbee.jpg?v=20250326" loading="eager" fetchpriority="high" alt="Imagem sobre Zigbee" width="300" height="200" style="display: block; max-width: 100%;">
+                    <img src="images/zigbee_new.jpg?v=20250326" loading="eager" fetchpriority="high" alt="Imagem sobre Zigbee" width="300" height="200" style="display: block; max-width: 100%;">
                     <h3>Como o Zigbee Está Transformando a Automação Residencial</h3>
                     <p>O Zigbee é um protocolo de comunicação sem fio projetado para redes de baixa potência...</p>
                     <a href="post-zigbee.html" class="read-more">Leia mais</a>
                 </article>
                 <article class="blog-post">
-                    <img src="images/homeassistant.jpg?v=20250326" loading="eager" fetchpriority="high" alt="imagem homeassistant" width="300" height="200" style="display: block; max-width: 100%;">
+                    <img src="images/homeassistant_new.jpg?v=20250326" loading="eager" fetchpriority="high" alt="imagem homeassistant" width="300" height="200" style="display: block; max-width: 100%;">
                     <h3>Afinal, o que é o Home Assistant</h3>
                     <p>O Home Assistant é uma plataforma de automação residencial de código aberto que permite ...</p>
                     <a href="post-smart-home.html" class="read-more">Leia mais</a>
@@ -676,40 +676,49 @@
     <!-- Script de validação do formulário -->
     <script src="script.js?v=1.4"></script>
 
-    <!-- Desativar Service Worker temporariamente -->
+    <!-- Script do Service Worker -->
     <script>
-        // Desregistrar qualquer Service Worker existente
+        // Registrar o Service Worker
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.getRegistrations().then(function(registrations) {
-                for(let registration of registrations) {
-                    registration.unregister();
-                    console.log('Service Worker desregistrado');
-                }
+            window.addEventListener('load', () => {
+                // Adicionar timestamp para forçar atualização do Service Worker
+                const swUrl = '/sw.js?v=' + new Date().getTime();
+                navigator.serviceWorker.register(swUrl)
+                    .then(registration => {
+                        console.log('ServiceWorker registrado com sucesso:', registration.scope);
+                        
+                        // Forçar atualização do Service Worker
+                        registration.update();
+                        
+                        // Verificar se há uma nova versão do Service Worker
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            console.log('Nova versão do Service Worker encontrada!');
+                        });
+                    })
+                    .catch(error => {
+                        console.log('Falha ao registrar o ServiceWorker:', error);
+                    });
             });
             
-            // Limpar todos os caches
-            if ('caches' in window) {
-                caches.keys().then(function(names) {
-                    for (let name of names) {
-                        caches.delete(name);
-                        console.log('Cache deletado:', name);
-                    }
-                });
-            }
+            // Limpar caches antigos quando o usuário atualiza a página
+            window.addEventListener('load', () => {
+                if ('caches' in window) {
+                    caches.keys().then(cacheNames => {
+                        cacheNames.forEach(cacheName => {
+                            if (cacheName.startsWith('sergiolpta-site-') && cacheName !== 'sergiolpta-site-v1.4') {
+                                console.log('Limpando cache antigo:', cacheName);
+                                caches.delete(cacheName);
+                            }
+                        });
+                    });
+                }
+            });
         }
         
-        // Forçar o carregamento das imagens
+        // Forçar o carregamento das imagens na primeira carga
         window.addEventListener('DOMContentLoaded', function() {
-            // Forçar o carregamento das imagens com timestamp
-            setTimeout(function() {
-                document.querySelectorAll('img').forEach(function(img) {
-                    if (img.src && !img.src.includes('data:')) {
-                        const originalSrc = img.src.split('?')[0];
-                        img.src = originalSrc + '?t=' + new Date().getTime();
-                        console.log('Forçando carregamento de imagem:', img.src);
-                    }
-                });
-            }, 500);
+            console.log('Verificando imagens...');
         });
     </script>
     <!-- Script de consentimento de cookies -->

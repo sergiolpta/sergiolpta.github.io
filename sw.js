@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sergiolpta-site-v1.3';
+const CACHE_NAME = 'sergiolpta-site-v1.4';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -11,8 +11,8 @@ const urlsToCache = [
     '/images/apple-touch-icon.png',
     '/images/favicon-32x32.png',
     '/images/favicon-16x16.png',
-    '/images/zigbee.jpg',
-    '/images/homeassistant.jpg',
+    '/images/zigbee_new.jpg',
+    '/images/homeassistant_new.jpg',
     '/images/tendencias.jpg',
     '/images/multiroom.jpg',
     '/images/acessibilidade.jpg',
