@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sergiolpta-site-v1.1';
+const CACHE_NAME = 'sergiolpta-site-v1.2';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -11,6 +11,11 @@ const urlsToCache = [
     '/images/apple-touch-icon.png',
     '/images/favicon-32x32.png',
     '/images/favicon-16x16.png',
+    '/images/zigbee.jpg',
+    '/images/homeassistant.jpg',
+    '/images/tendencias.jpg',
+    '/images/multiroom.jpg',
+    '/images/acessibilidade.jpg',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css',
     'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap',
     'https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap'
