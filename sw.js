@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sergiolpta-site-v1.6';
+const CACHE_NAME = 'sergiolpta-site-v1.7';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -14,7 +14,7 @@ const urlsToCache = [
     '/images/zigbee-meta.jpg',
     '/images/home.png',
     '/images/tendencias.jpg',
-    '/images/multiroom.jpg',
+    '/images/multi.jpg',
     '/images/acessibilidade.jpg',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css',
     'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap',

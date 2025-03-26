@@ -622,7 +622,7 @@
                     <a href="post-tendencias.html" class="read-more">Leia mais</a>
                 </article>
                 <article class="blog-post">
-                    <img src="images/multiroom.jpg?v=20250326" loading="eager" fetchpriority="high" alt="multiroom" width="300" height="200" style="display: block; max-width: 100%;">
+                    <img src="images/multi.jpg?v=20250326" loading="eager" fetchpriority="high" alt="multiroom" width="300" height="200" style="display: block; max-width: 100%; object-fit: cover;">
                     <h3>Saiba o que é o sistema Multiroom</h3>
                     <p>Um sistema de áudio multiroom é uma solução tecnológica que...</p>
                     <a href="post-multiroom.html" class="read-more">Leia mais</a>
@@ -706,7 +706,7 @@
                 if ('caches' in window) {
                     caches.keys().then(cacheNames => {
                         cacheNames.forEach(cacheName => {
-                            if (cacheName.startsWith('sergiolpta-site-') && cacheName !== 'sergiolpta-site-v1.6') {
+                            if (cacheName.startsWith('sergiolpta-site-') && cacheName !== 'sergiolpta-site-v1.7') {
                                 console.log('Limpando cache antigo:', cacheName);
                                 caches.delete(cacheName);
                             }
