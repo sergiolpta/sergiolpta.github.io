@@ -34,4 +34,59 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://sergiolpta.github.io/automacao-residencial.html</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sergiolpta.github.io/images/automacao-residencial.jpg</image:loc>
+      <image:title>Automação Residencial em Lençóis Paulista</image:title>
+      <image:caption>Soluções completas em automação residencial para sua casa</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sergiolpta.github.io/home-theater.html</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sergiolpta.github.io/images/home-theater.jpg</image:loc>
+      <image:title>Home Theater em Lençóis Paulista</image:title>
+      <image:caption>Sistemas de home theater personalizados para sua casa</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sergiolpta.github.io/automacao-comercial.html</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sergiolpta.github.io/images/automacao-comercial.jpg</image:loc>
+      <image:title>Automação Comercial em Lençóis Paulista</image:title>
+      <image:caption>Soluções completas em automação para empresas</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sergiolpta.github.io/sonorizacao.html</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sergiolpta.github.io/images/sonorizacao.jpg</image:loc>
+      <image:title>Sonorização em Lençóis Paulista</image:title>
+      <image:caption>Sistemas de áudio profissional para ambientes residenciais e comerciais</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sergiolpta.github.io/luminotecnica.html</loc>
+    <lastmod>2025-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://sergiolpta.github.io/images/luminotecnica.jpg</image:loc>
+      <image:title>Luminotécnica em Lençóis Paulista</image:title>
+      <image:caption>Projetos de iluminação personalizados para residências e empresas</image:caption>
+    </image:image>
+  </url>
 </urlset>
