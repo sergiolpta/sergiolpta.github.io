@@ -279,7 +279,7 @@ img {
 
     /* Ajustes da seção Hero */
     .hero {
-        padding-top: 120px; /* Aumentando o espaço para o header */
+        padding-top: 160px; /* Aumentando significativamente o espaço para o header */
         height: auto;
         min-height: 100vh;
         justify-content: flex-start; /* Alinha o conteúdo ao topo em vez de centralizar */
