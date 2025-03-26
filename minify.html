@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferramenta de Minificação - Nexus Home LP</title>
+    <link rel="stylesheet" href="styles4.8.css">
+    <style>
+        .minify-container {
+            max-width: 800px;
+            margin: 120px auto 40px;
+            padding: 2rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .download-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: var(--light-gray);
+            border-radius: 6px;
+        }
+        
+        #download-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        #download-links li {
+            margin-bottom: 1rem;
+        }
+        
+        .download-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .download-link:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .instructions {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .instructions h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .instructions ol {
+            padding-left: 1.5rem;
+        }
+        
+        .instructions li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .back-link {
+            display: block;
+            margin-top: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.jpg" alt="Nexus Home LP Logo" width="90" height="90" loading="eager" fetchpriority="high">
+            </a>
+            <h1 class="company-name">Nexus Home LP</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="minify-tool" class="minify-container">
+        <h1>Ferramenta de Minificação</h1>
+        <p>Esta ferramenta gera versões minificadas dos arquivos CSS e JavaScript do site, reduzindo seu tamanho e melhorando o desempenho de carregamento.</p>
+        
+        <div class="download-section">
+            <h2>Arquivos Minificados</h2>
+            <p>Clique nos links abaixo para baixar as versões minificadas dos arquivos:</p>
+            <ul id="download-links">
+                <!-- Links de download serão adicionados aqui pelo JavaScript -->
+                <li>Carregando arquivos...</li>
+            </ul>
+        </div>
+        
+        <div class="instructions">
+            <h3>Como usar os arquivos minificados:</h3>
+            <ol>
+                <li>Baixe os arquivos minificados clicando nos links acima</li>
+                <li>Faça upload dos arquivos para o diretório correspondente no seu servidor</li>
+                <li>Atualize as referências nos arquivos HTML para apontar para as versões minificadas</li>
+                <li>Por exemplo, mude <code>&lt;link rel="stylesheet" href="styles4.8.css"&gt;</code> para <code>&lt;link rel="stylesheet" href="styles4.8.min.css"&gt;</code></li>
+            </ol>
+        </div>
+        
+        <a href="index.html" class="back-link">Voltar para a página inicial</a>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Nexus Home LP</h3>
+                <p>Soluções inteligentes para sua casa e empresa.</p>
+            </div>
+            <p class="copyright">&copy; 2024 Nexus Home LP. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Script de minificação -->
+    <script src="js/minify.js"></script>
+</body>
+</html>
