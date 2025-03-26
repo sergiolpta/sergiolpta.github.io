@@ -676,45 +676,41 @@
     <!-- Script de validação do formulário -->
     <script src="script.js?v=1.4"></script>
 
-    <!-- Script do Service Worker -->
+    <!-- Desativar Service Worker temporariamente -->
     <script>
-        // Registrar o Service Worker
+        // Desregistrar qualquer Service Worker existente
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                // Adicionar timestamp para forçar atualização do Service Worker
-                const swUrl = '/sw.js?v=' + new Date().getTime();
-                navigator.serviceWorker.register(swUrl)
-                    .then(registration => {
-                        console.log('ServiceWorker registrado com sucesso:', registration.scope);
-                        
-                        // Forçar atualização do Service Worker
-                        registration.update();
-                        
-                        // Verificar se há uma nova versão do Service Worker
-                        registration.addEventListener('updatefound', () => {
-                            const newWorker = registration.installing;
-                            console.log('Nova versão do Service Worker encontrada!');
-                        });
-                    })
-                    .catch(error => {
-                        console.log('Falha ao registrar o ServiceWorker:', error);
-                    });
-            });
-            
-            // Limpar caches antigos quando o usuário atualiza a página
-            window.addEventListener('load', () => {
-                if ('caches' in window) {
-                    caches.keys().then(cacheNames => {
-                        cacheNames.forEach(cacheName => {
-                            if (cacheName.startsWith('sergiolpta-site-') && cacheName !== 'sergiolpta-site-v1.3') {
-                                console.log('Limpando cache antigo:', cacheName);
-                                caches.delete(cacheName);
-                            }
-                        });
-                    });
+            navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                for(let registration of registrations) {
+                    registration.unregister();
+                    console.log('Service Worker desregistrado');
                 }
             });
+            
+            // Limpar todos os caches
+            if ('caches' in window) {
+                caches.keys().then(function(names) {
+                    for (let name of names) {
+                        caches.delete(name);
+                        console.log('Cache deletado:', name);
+                    }
+                });
+            }
         }
+        
+        // Forçar o carregamento das imagens
+        window.addEventListener('DOMContentLoaded', function() {
+            // Forçar o carregamento das imagens com timestamp
+            setTimeout(function() {
+                document.querySelectorAll('img').forEach(function(img) {
+                    if (img.src && !img.src.includes('data:')) {
+                        const originalSrc = img.src.split('?')[0];
+                        img.src = originalSrc + '?t=' + new Date().getTime();
+                        console.log('Forçando carregamento de imagem:', img.src);
+                    }
+                });
+            }, 500);
+        });
     </script>
     <!-- Script de consentimento de cookies -->
     <script src="js/cookies.js"></script>
