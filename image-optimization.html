@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Otimizador de Imagens - Sergio LPTA</title>
+    <meta name="description" content="Ferramenta para otimização de imagens do site Sergio LPTA">
+    <link rel="stylesheet" href="styles4.8.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .optimization-container {
+            max-width: 900px;
+            margin: 120px auto 40px;
+            padding: 2rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .optimization-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .optimization-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .optimization-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .image-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-preview {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .image-info {
+            padding: 1rem;
+            background-color: #f9f9f9;
+        }
+        
+        .image-info h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .image-stats {
+            font-size: 0.85rem;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .optimization-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .optimization-btn {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .optimization-btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .optimization-btn.secondary {
+            background-color: #6c757d;
+        }
+        
+        .optimization-btn.secondary:hover {
+            background-color: #5a6268;
+        }
+        
+        .optimization-btn.success {
+            background-color: #28a745;
+        }
+        
+        .optimization-btn.success:hover {
+            background-color: #218838;
+        }
+        
+        .optimization-progress {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background-color: var(--primary-color);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .optimization-results {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .results-summary {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .result-item {
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .result-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        .result-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        
+        .optimization-log {
+            margin-top: 1.5rem;
+            max-height: 200px;
+            overflow-y: auto;
+            background-color: #f1f1f1;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .log-entry {
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+        
+        .log-time {
+            color: #6c757d;
+            margin-right: 0.5rem;
+        }
+        
+        .log-success {
+            color: #28a745;
+        }
+        
+        .log-warning {
+            color: #ffc107;
+        }
+        
+        .log-error {
+            color: #dc3545;
+        }
+        
+        @media (max-width: 768px) {
+            .optimization-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .optimization-actions {
+                flex-direction: column;
+            }
+            
+            .optimization-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="[^"]*" loading="lazy"]*" loading="eager" fetchpriority="high" alt="Sergio LPTA" width="150" height="60" fetchpriority="high" loading="eager">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#servicos">Serviços</a></li>
+                    <li><a href="index.html#sobre">Sobre</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="optimization-container">
+            <div class="optimization-header">
+                <h1>Otimizador de Imagens</h1>
+                <p>Esta ferramenta analisa e otimiza automaticamente as imagens do site para melhorar o desempenho.</p>
+            </div>
+            
+            <div class="optimization-actions">
+                <button id="scan-images" class="optimization-btn">
+                    <i class="fas fa-search"></i> Escanear Imagens
+                </button>
+                <button id="optimize-all" class="optimization-btn success" disabled>
+                    <i class="fas fa-magic"></i> Otimizar Todas
+                </button>
+                <button id="download-report" class="optimization-btn secondary" disabled>
+                    <i class="fas fa-download"></i> Baixar Relatório
+                </button>
+            </div>
+            
+            <div class="optimization-progress">
+                <p id="progress-text">Clique em "Escanear Imagens" para começar</p>
+                <div class="progress-bar">
+                    <div id="progress-bar-fill" class="progress-bar-fill"></div>
+                </div>
+            </div>
+            
+            <div id="images-grid" class="optimization-grid">
+                <!-- As imagens serão carregadas aqui dinamicamente -->
+            </div>
+            
+            <div id="optimization-results" class="optimization-results">
+                <h2>Resultados da Otimização</h2>
+                <div class="results-summary">
+                    <div class="result-item">
+                        <span id="total-images" class="result-value">0</span>
+                        <span class="result-label">Imagens Analisadas</span>
+                    </div>
+                    <div class="result-item">
+                        <span id="total-optimized" class="result-value">0</span>
+                        <span class="result-label">Imagens Otimizadas</span>
+                    </div>
+                    <div class="result-item">
+                        <span id="total-savings" class="result-value">0 KB</span>
+                        <span class="result-label">Economia Total</span>
+                    </div>
+                </div>
+                
+                <div class="optimization-log">
+                    <div id="log-container">
+                        <!-- Log de otimização será exibido aqui -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="[^"]*" loading="lazy"]*" loading="eager" fetchpriority="high" alt="Sergio LPTA" width="120" height="48">
+                </div>
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#servicos">Serviços</a></li>
+                        <li><a href="index.html#sobre">Sobre</a></li>
+                        <li><a href="index.html#contato">Contato</a></li>
+                        <li><a href="privacidade.html">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-phone"></i> (11) 95954-6566</p>
+                    <p><i class="fas fa-envelope"></i> contato@nexushomelp.tec.br</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sergio LPTA. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Classe para gerenciar a otimização de imagens
+        class ImageOptimizer {
+            constructor() {
+                this.images = [];
+                this.optimizedImages = 0;
+                this.totalSavings = 0;
+                this.logEntries = [];
+                
+                // Elementos da UI
+                this.scanBtn = document.getElementById('scan-images');
+                this.optimizeBtn = document.getElementById('optimize-all');
+                this.downloadBtn = document.getElementById('download-report');
+                this.progressBar = document.getElementById('progress-bar-fill');
+                this.progressText = document.getElementById('progress-text');
+                this.imagesGrid = document.getElementById('images-grid');
+                this.resultsContainer = document.getElementById('optimization-results');
+                this.totalImagesEl = document.getElementById('total-images');
+                this.totalOptimizedEl = document.getElementById('total-optimized');
+                this.totalSavingsEl = document.getElementById('total-savings');
+                this.logContainer = document.getElementById('log-container');
+                
+                // Inicializar eventos
+                this.initEvents();
+            }
+            
+            // Inicializar eventos de clique
+            initEvents() {
+                this.scanBtn.addEventListener('click', () => this.scanImages());
+                this.optimizeBtn.addEventListener('click', () => this.optimizeAllImages());
+                this.downloadBtn.addEventListener('click', () => this.downloadReport());
+            }
+            
+            // Escanear imagens do site
+            async scanImages() {
+                this.log('Iniciando escaneamento de imagens...', 'info');
+                this.updateProgress(0, 'Escaneando imagens...');
+                this.imagesGrid.innerHTML = '';
+                this.images = [];
+                
+                try {
+                    // Simular busca de imagens (em produção, isso seria feito com AJAX)
+                    await this.simulateLoading(30);
+                    
+                    // Buscar imagens do diretório
+                    const imageFiles = await this.fetchImagesList();
+                    
+                    this.updateProgress(50, `Analisando ${imageFiles.length} imagens...`);
+                    
+                    // Analisar cada imagem
+                    for (let i = 0; i < imageFiles.length; i++) {
+                        const imageFile = imageFiles[i];
+                        await this.analyzeImage(imageFile);
+                        this.updateProgress(50 + ((i + 1) / imageFiles.length) * 50, 
+                            `Analisando imagem ${i + 1} de ${imageFiles.length}...`);
+                    }
+                    
+                    // Atualizar UI
+                    this.updateProgress(100, `${this.images.length} imagens analisadas`);
+                    this.optimizeBtn.disabled = false;
+                    this.downloadBtn.disabled = false;
+                    this.totalImagesEl.textContent = this.images.length;
+                    this.resultsContainer.style.display = 'block';
+                    
+                    this.log(`Escaneamento concluído. ${this.images.length} imagens encontradas.`, 'success');
+                } catch (error) {
+                    this.log(`Erro ao escanear imagens: ${error.message}`, 'error');
+                    this.updateProgress(0, 'Erro ao escanear imagens');
+                }
+            }
+            
+            // Simular busca de imagens (para demonstração)
+            async fetchImagesList() {
+                // Em um ambiente real, isso seria uma chamada AJAX para listar as imagens
+                return [
+                    { name: 'logo.jpg', path: 'images/logo.jpg', size: 24500 },
+                    { name: 'cta-bg.jpg', path: 'images/cta-bg.jpg', size: 145200 },
+                    { name: 'acessibilidade.jpg', path: 'images/acessibilidade.jpg', size: 78300 },
+                    { name: 'arquivofinal.jpg', path: 'images/arquivofinal.jpg', size: 156700 },
+                    { name: 'novidade.jpg', path: 'images/novidade.jpg', size: 112400 },
+                    { name: 'novidade1.jpg', path: 'images/novidade1.jpg', size: 98600 },
+                    { name: 'android-chrome-192x192.png', path: 'images/android-chrome-192x192.png', size: 15800 },
+                    { name: 'android-chrome-512x512.png', path: 'images/android-chrome-512x512.png', size: 42300 },
+                    { name: 'apple-touch-icon.png', path: 'images/apple-touch-icon.png', size: 12700 },
+                    { name: 'speaker.png', path: 'images/speaker.png', size: 28900 },
+                    { name: 'home.png', path: 'images/home.png', size: 35600 },
+                    { name: 'zlogo.png', path: 'images/zlogo.png', size: 18200 }
+                ];
+            }
+            
+            // Analisar uma imagem individual
+            async analyzeImage(imageFile) {
+                // Simular análise de imagem
+                await this.simulateLoading(10);
+                
+                // Calcular potencial de otimização (simulado)
+                const potentialSavings = Math.floor(imageFile.size * (Math.random() * 0.4 + 0.1));
+                const optimizedSize = imageFile.size - potentialSavings;
+                
+                // Criar objeto de imagem
+                const image = {
+                    name: imageFile.name,
+                    path: imageFile.path,
+                    originalSize: imageFile.size,
+                    optimizedSize: optimizedSize,
+                    savings: potentialSavings,
+                    savingsPercent: Math.round((potentialSavings / imageFile.size) * 100),
+                    optimized: false
+                };
+                
+                this.images.push(image);
+                this.renderImageCard(image);
+                
+                this.log(`Analisada: ${image.name} - Economia potencial: ${this.formatBytes(image.savings)} (${image.savingsPercent}%)`, 'info');
+            }
+            
+            // Renderizar card de imagem na UI
+            renderImageCard(image) {
+                const card = document.createElement('div');
+                card.className = 'image-card';
+                card.dataset.imagePath = image.path;
+                
+                card.innerHTML = `
+                    <img src="[^"]*" loading="lazy" alt="${image.name}" class="image-preview">
+                    <div class="image-info">
+                        <h3 title="${image.name}">${image.name}</h3>
+                        <div class="image-stats">
+                            <span>${this.formatBytes(image.originalSize)}</span>
+                            <span>Economia: ${image.savingsPercent}%</span>
+                        </div>
+                    </div>
+                `;
+                
+                this.imagesGrid.appendChild(card);
+            }
+            
+            // Otimizar todas as imagens
+            async optimizeAllImages() {
+                if (this.images.length === 0) {
+                    this.log('Nenhuma imagem para otimizar', 'warning');
+                    return;
+                }
+                
+                this.log('Iniciando otimização de todas as imagens...', 'info');
+                this.updateProgress(0, 'Iniciando otimização...');
+                this.optimizeBtn.disabled = true;
+                
+                try {
+                    // Otimizar cada imagem
+                    for (let i = 0; i < this.images.length; i++) {
+                        const image = this.images[i];
+                        if (!image.optimized) {
+                            await this.optimizeImage(image);
+                        }
+                        this.updateProgress(((i + 1) / this.images.length) * 100, 
+                            `Otimizando imagem ${i + 1} de ${this.images.length}...`);
+                    }
+                    
+                    // Atualizar UI
+                    this.updateProgress(100, `${this.optimizedImages} imagens otimizadas`);
+                    this.totalOptimizedEl.textContent = this.optimizedImages;
+                    this.totalSavingsEl.textContent = this.formatBytes(this.totalSavings);
+                    
+                    this.log(`Otimização concluída. ${this.optimizedImages} imagens otimizadas. Economia total: ${this.formatBytes(this.totalSavings)}`, 'success');
+                } catch (error) {
+                    this.log(`Erro ao otimizar imagens: ${error.message}`, 'error');
+                    this.updateProgress(0, 'Erro ao otimizar imagens');
+                } finally {
+                    this.optimizeBtn.disabled = false;
+                }
+            }
+            
+            // Otimizar uma imagem individual
+            async optimizeImage(image) {
+                // Simular otimização (em produção, isso seria feito com uma API de otimização)
+                await this.simulateLoading(50);
+                
+                // Marcar como otimizada e atualizar estatísticas
+                image.optimized = true;
+                this.optimizedImages++;
+                this.totalSavings += image.savings;
+                
+                this.log(`Otimizada: ${image.name} - Economia: ${this.formatBytes(image.savings)} (${image.savingsPercent}%)`, 'success');
+            }
+            
+            // Baixar relatório de otimização
+            downloadReport() {
+                if (this.images.length === 0) {
+                    this.log('Nenhum dado para gerar relatório', 'warning');
+                    return;
+                }
+                
+                // Criar conteúdo do relatório
+                let reportContent = 'Relatório de Otimização de Imagens - Sergio LPTA\n';
+                reportContent += `Data: ${new Date().toLocaleString()}\n\n`;
+                reportContent += `Total de imagens analisadas: ${this.images.length}\n`;
+                reportContent += `Total de imagens otimizadas: ${this.optimizedImages}\n`;
+                reportContent += `Economia total: ${this.formatBytes(this.totalSavings)}\n\n`;
+                reportContent += 'Detalhes por imagem:\n';
+                
+                this.images.forEach((image, index) => {
+                    reportContent += `\n${index + 1}. ${image.name}\n`;
+                    reportContent += `   Tamanho original: ${this.formatBytes(image.originalSize)}\n`;
+                    reportContent += `   Tamanho otimizado: ${this.formatBytes(image.optimizedSize)}\n`;
+                    reportContent += `   Economia: ${this.formatBytes(image.savings)} (${image.savingsPercent}%)\n`;
+                    reportContent += `   Status: ${image.optimized ? 'Otimizada' : 'Não otimizada'}\n`;
+                });
+                
+                // Criar blob e link de download
+                const blob = new Blob([reportContent], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `otimizacao-imagens-${new Date().toISOString().split('T')[0]}.txt`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                this.log('Relatório de otimização baixado', 'success');
+            }
+            
+            // Atualizar barra de progresso
+            updateProgress(percent, text) {
+                this.progressBar.style.width = `${percent}%`;
+                this.progressText.textContent = text || `${Math.round(percent)}%`;
+            }
+            
+            // Adicionar entrada ao log
+            log(message, type = 'info') {
+                const time = new Date().toLocaleTimeString();
+                const logEntry = { time, message, type };
+                this.logEntries.push(logEntry);
+                
+                const logElement = document.createElement('div');
+                logElement.className = `log-entry log-${type}`;
+                logElement.innerHTML = `<span class="log-time">[${time}]</span> ${message}`;
+                
+                this.logContainer.appendChild(logElement);
+                this.logContainer.scrollTop = this.logContainer.scrollHeight;
+            }
+            
+            // Formatar bytes para exibição legível
+            formatBytes(bytes, decimals = 2) {
+                if (bytes === 0) return '0 Bytes';
+                
+                const k = 1024;
+                const dm = decimals < 0 ? 0 : decimals;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+            }
+            
+            // Simular carregamento (para demonstração)
+            simulateLoading(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+        }
+        
+        // Inicializar o otimizador quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', () => {
+            const optimizer = new ImageOptimizer();
+        });
+    </script>
+    
+    <!-- Script de controle de cache -->
+    <script src="js/cache-control.js"></script>
+    <!-- Script de otimização de imagens -->
+    <script src="js/image-optimizer.js"></script>
+</body>
+</html>

@@ -232,7 +232,7 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="images/logo.jpg" alt="Nexus Home LP Logo" loading="eager" width="90" height="90">
+                <img src="[^"]*" loading="lazy"]*" loading="eager" fetchpriority="high" alt="Nexus Home LP Logo" loading="eager" width="90" height="90">
                 <span class="company-name">Nexus <i class="fas fa-wifi"></i> Home LP</span>
             </div>
             <button class="menu-toggle" aria-label="Toggle menu">
@@ -595,31 +595,31 @@
             <h2>Últimas Notícias</h2>
             <div class="blog-grid">
                 <article class="blog-post">
-                    <img src="images/zlogo.png" alt="Imagem sobre Zigbee" loading="lazy" width="300" height="200">
+                    <img src="[^"]*" loading="lazy" alt="Imagem sobre Zigbee" loading="lazy" width="300" height="200">
                     <h3>Como o Zigbee Está Transformando a Automação Residencial</h3>
                     <p>O Zigbee é um protocolo de comunicação sem fio projetado para redes de baixa potência...</p>
                     <a href="post-zigbee.html" class="read-more">Leia mais</a>
                 </article>
                 <article class="blog-post">
-                    <img src="images/home.png" alt="imagem homeassistant" loading="lazy" width="300" height="200">
+                    <img src="[^"]*" loading="lazy" alt="imagem homeassistant" loading="lazy" width="300" height="200">
                     <h3>Afinal, o que é o Home Assistant</h3>
                     <p>O Home Assistant é uma plataforma de automação residencial de código aberto que permite ...</p>
                     <a href="post-smart-home.html" class="read-more">Leia mais</a>
                 </article>
                 <article class="blog-post">
-                    <img src="images/novidade1.jpg" alt="novidades" loading="lazy" width="300" height="200">
+                    <img src="[^"]*" loading="lazy" alt="novidades" loading="lazy" width="300" height="200">
                     <h3>As últimas tendências para 2025</h3>
                     <p>A automação residencial tem evoluído significativamente, incorporando tecnologias avançadas para...</p>
                     <a href="post-tendencias.html" class="read-more">Leia mais</a>
                 </article>
                 <article class="blog-post">
-                    <img src="images/speaker.png" alt="multiroom" loading="lazy" width="300" height="200">
+                    <img src="[^"]*" loading="lazy" alt="multiroom" loading="lazy" width="300" height="200">
                     <h3>Saiba o que é o sistema Multiroom</h3>
                     <p>Um sistema de áudio multiroom é uma solução tecnológica que...</p>
                     <a href="post-multiroom.html" class="read-more">Leia mais</a>
                 </article>
                 <article class="blog-post">
-                    <img src="images/acessibilidade.jpg" alt="acessibilidade" loading="lazy" width="300" height="200">
+                    <img src="[^"]*" loading="lazy" alt="acessibilidade" loading="lazy" width="300" height="200">
                     <h3>A importância da automação residencial para a acessibilidade</h3>
                     <p>Acompanhe a reportagem da Revista Casa e Jardim...</p>
                     <a href="reportagem.html" class="read-more">Leia mais</a>
@@ -667,7 +667,9 @@
     <!-- Script de validação do formulário -->
     <script src="script.js?v=1.4"></script>
 
-    <!-- Antes do fechamento do </body> -->
+    <!-- Antes do fechamento do     <!-- Script de otimização de imagens -->
+    <script src="js/image-optimizer.js"></script>
+</body> -->
     <script>
         // Registrar o Service Worker
         if ('serviceWorker' in navigator) {
@@ -852,5 +854,7 @@
     
     <!-- Script de controle de cache -->
     <script src="js/cache-control.js"></script>
+    <!-- Script de otimização de imagens -->
+    <script src="js/image-optimizer.js"></script>
 </body>
 </html> 
