@@ -134,8 +134,37 @@ function clearSiteCache() {
         document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
     }
     
-    // Recarregar a página com parâmetro para forçar recarregamento completo
-    window.location.href = window.location.href.split('?')[0] + '?cache=' + Date.now();
+    // Limpar o cache do Service Worker
+    if ('caches' in window) {
+        caches.keys().then(function(cacheNames) {
+            cacheNames.forEach(function(cacheName) {
+                if (cacheName.startsWith('sergiolpta-site-')) {
+                    caches.delete(cacheName).then(function() {
+                        console.log('Cache ' + cacheName + ' deletado com sucesso');
+                    });
+                }
+            });
+        });
+    }
+    
+    // Desregistrar o Service Worker atual
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(registrations => {
+            for (let registration of registrations) {
+                registration.unregister().then(() => {
+                    console.log('Service Worker desregistrado');
+                });
+            }
+            // Recarregar a página após um pequeno atraso para garantir que o Service Worker seja desregistrado
+            setTimeout(() => {
+                // Recarregar a página com parâmetro para forçar recarregamento completo
+                window.location.href = window.location.href.split('?')[0] + '?cache=' + Date.now();
+            }, 500);
+        });
+    } else {
+        // Recarregar a página com parâmetro para forçar recarregamento completo
+        window.location.href = window.location.href.split('?')[0] + '?cache=' + Date.now();
+    }
 }
 
 // Adicionar botão de limpeza de cache no rodapé para administradores

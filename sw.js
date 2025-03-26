@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sergiolpta-site-v1.2';
+const CACHE_NAME = 'sergiolpta-site-v1.3';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -70,14 +70,46 @@ self.addEventListener('fetch', event => {
         return;
     }
 
+    // Tratamento especial para imagens
+    const isImage = event.request.url.match(/\.(jpg|jpeg|png|gif|webp|svg)$/i);
+    
     event.respondWith(
         caches.match(event.request)
             .then(response => {
-                if (response) {
+                // Se encontrou no cache e não é uma imagem, retorna do cache
+                if (response && !isImage) {
                     return response;
                 }
                 
-                // Clone da requisição original
+                // Para imagens, sempre busca a versão mais recente da rede primeiro
+                if (isImage) {
+                    return fetch(event.request)
+                        .then(networkResponse => {
+                            // Clone da resposta para armazenar no cache
+                            const responseToCache = networkResponse.clone();
+                            
+                            caches.open(CACHE_NAME)
+                                .then(cache => {
+                                    cache.put(event.request, responseToCache);
+                                })
+                                .catch(error => {
+                                    console.warn('Erro ao armazenar imagem no cache:', error);
+                                });
+                                
+                            return networkResponse;
+                        })
+                        .catch(() => {
+                            // Se falhar a busca na rede, tenta o cache
+                            if (response) {
+                                return response;
+                            }
+                            // Se não tiver no cache, retorna uma imagem de fallback ou erro
+                            console.warn('Imagem não encontrada na rede nem no cache:', event.request.url);
+                            return response;
+                        });
+                }
+                
+                // Para outros recursos, comportamento normal
                 const fetchRequest = event.request.clone();
                 
                 return fetch(fetchRequest)

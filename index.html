@@ -236,8 +236,13 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="[^"]*" loading="lazy"]*" loading="eager" fetchpriority="high" alt="Nexus Home LP Logo" loading="eager" width="90" height="90">
+                <img src="images/logo.jpg" loading="eager" fetchpriority="high" alt="Nexus Home LP Logo" width="90" height="90">
                 <span class="company-name">Nexus <i class="fas fa-wifi"></i> Home LP</span>
+            </div>
+            <div class="dev-tools" style="position: absolute; top: 10px; right: 10px; z-index: 9999;">
+                <button onclick="clearSiteCache()" style="background-color: #ff5722; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">
+                    <i class="fas fa-trash"></i> Limpar Cache
+                </button>
             </div>
             <button class="menu-toggle" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
@@ -676,13 +681,38 @@
         // Registrar o Service Worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
+                // Adicionar timestamp para forçar atualização do Service Worker
+                const swUrl = '/sw.js?v=' + new Date().getTime();
+                navigator.serviceWorker.register(swUrl)
                     .then(registration => {
                         console.log('ServiceWorker registrado com sucesso:', registration.scope);
+                        
+                        // Forçar atualização do Service Worker
+                        registration.update();
+                        
+                        // Verificar se há uma nova versão do Service Worker
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            console.log('Nova versão do Service Worker encontrada!');
+                        });
                     })
                     .catch(error => {
                         console.log('Falha ao registrar o ServiceWorker:', error);
                     });
+            });
+            
+            // Limpar caches antigos quando o usuário atualiza a página
+            window.addEventListener('load', () => {
+                if ('caches' in window) {
+                    caches.keys().then(cacheNames => {
+                        cacheNames.forEach(cacheName => {
+                            if (cacheName.startsWith('sergiolpta-site-') && cacheName !== 'sergiolpta-site-v1.3') {
+                                console.log('Limpando cache antigo:', cacheName);
+                                caches.delete(cacheName);
+                            }
+                        });
+                    });
+                }
             });
         }
     </script>
