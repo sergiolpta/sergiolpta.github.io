@@ -671,45 +671,21 @@
     <!-- Script de validação do formulário -->
     <script src="script.js?v=1.4"></script>
 
-    <!-- Antes do fechamento do     <!-- Script de otimização de imagens -->
-    <script src="js/image-optimizer.js"></script>
-</body> -->
+    <!-- Script do Service Worker -->
     <script>
         // Registrar o Service Worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                // Forçar atualização do Service Worker adicionando timestamp como parâmetro de consulta
-                const swUrl = '/sw.js?v=' + new Date().getTime();
-                navigator.serviceWorker.register(swUrl)
+                navigator.serviceWorker.register('/sw.js')
                     .then(registration => {
                         console.log('ServiceWorker registrado com sucesso:', registration.scope);
-                        
-                        // Verificar se há uma nova versão do Service Worker
-                        registration.addEventListener('updatefound', () => {
-                            const newWorker = registration.installing;
-                            console.log('Nova versão do Service Worker encontrada!');
-                            
-                            // Quando o novo Service Worker estiver instalado, ativar imediatamente
-                            newWorker.addEventListener('statechange', () => {
-                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                    // Recarregar a página para usar o novo Service Worker
-                                    window.location.reload();
-                                }
-                            });
-                        });
                     })
                     .catch(error => {
                         console.log('Falha ao registrar o ServiceWorker:', error);
                     });
-                    
-                // Verificar atualizações a cada carregamento de página
-                navigator.serviceWorker.addEventListener('controllerchange', () => {
-                    console.log('Novo Service Worker ativado!');
-                });
             });
         }
     </script>
-    
     <!-- Script de consentimento de cookies -->
     <script src="js/cookies.js"></script>
     <script>
