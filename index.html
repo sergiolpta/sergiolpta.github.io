@@ -542,10 +542,11 @@
                     <input type="email" name="email" placeholder="E-mail" required
                            autocomplete="email" id="email">
                     
-                    <input type="tel" name="telefone" placeholder="Telefone" required 
+                    <input type="tel" name="telefone" placeholder="(XX) XXXXX-XXXX" required 
                            pattern="\([0-9]{2}\)\s?[0-9]{4,5}-[0-9]{4}" 
                            title="Por favor, insira um telefone no formato (XX) XXXXX-XXXX"
-                           autocomplete="tel">
+                           autocomplete="tel"
+                           maxlength="16">
                     
                     <textarea name="mensagem" placeholder="Mensagem" required 
                               minlength="10" autocomplete="off"></textarea>
