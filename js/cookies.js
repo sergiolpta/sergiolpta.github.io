@@ -200,12 +200,12 @@ function enableGoogleAnalytics() {
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX', { 'anonymize_ip': true });
+    gtag('config', 'G-YNHJ82WJKL', { 'anonymize_ip': true });
     
     // Carrega o script do Google Analytics
     const script = document.createElement('script');
     script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-YNHJ82WJKL';
     document.head.appendChild(script);
 }
 
@@ -217,7 +217,7 @@ function disableGoogleAnalytics() {
     document.cookie = '_gid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     
     // Desativa o rastreamento
-    window['ga-disable-G-XXXXXXXXXX'] = true;
+    window['ga-disable-G-YNHJ82WJKL'] = true;
 }
 
 // Adiciona estilos CSS para o modal de configurações
