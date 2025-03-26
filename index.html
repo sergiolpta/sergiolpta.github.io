@@ -79,6 +79,62 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Nexus Home">
 
+    <!-- Dados estruturados JSON-LD para SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Nexus Home LP - Automação Residencial e Comercial",
+      "url": "https://sergiolpta.github.io/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://sergiolpta.github.io/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "mainEntity": {
+        "@type": "LocalBusiness",
+        "name": "Nexus Home LP",
+        "image": "https://sergiolpta.github.io/images/logo.jpg",
+        "@id": "https://sergiolpta.github.io/#organization",
+        "url": "https://sergiolpta.github.io/",
+        "telephone": "+5514999101050",
+        "priceRange": "$$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Lençóis Paulista",
+          "addressLocality": "Lençóis Paulista",
+          "addressRegion": "SP",
+          "postalCode": "18680-000",
+          "addressCountry": "BR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -22.6026,
+          "longitude": -48.8044
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "18:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "09:00",
+            "closes": "13:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/nexushomelp",
+          "https://www.instagram.com/nexus.homelp"
+        ],
+        "description": "Especialistas em automação residencial e comercial em Lençóis Paulista. Soluções em luminética, sonorização, home theater e segurança."
+      }
+    }
+    </script>
+    
     <!-- Google Analytics com Consent Mode e configuração avançada de privacidade -->
     <script>
       // Inicializa o dataLayer
@@ -319,6 +375,72 @@
         <!-- Seção FAQ com marcadores estruturados para SEO -->
         <section id="faq" class="faq-section" aria-labelledby="faq-heading">
             <h2 id="faq-heading" class="faq-title">Perguntas Frequentes</h2>
+            
+            <!-- Dados estruturados JSON-LD específicos para FAQ -->
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "O que é automação residencial?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Automação residencial é um conjunto de tecnologias que permite controlar diversos aspectos da sua casa como iluminação, climatização, segurança e entretenimento de forma integrada e inteligente."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "O que é Zigbee e por que é importante na automação?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Zigbee é um protocolo de comunicação sem fio, específico para automação, que oferece alta confiabilidade, baixo consumo de energia e excelente alcance. É ideal para automação residencial pois permite conectar centenas de dispositivos sem interferência, formando uma rede mesh onde cada dispositivo funciona como repetidor de sinal."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Quais são os beneficios da automação residencial?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Os principais benefícios incluem maior conforto, economia de energia, aumento da segurança, valorização do imóvel e praticidade no dia a dia. Você pode controlar sua casa remotamente e criar rotinas automatizadas para diferentes momentos."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Posso automatizar uma casa já construída?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sim! Existem soluções de automação que não exigem obras ou mudanças estruturais. Utilizamos tecnologias sem fio e dispositivos que podem ser instalados sobre a infraestrutura existente, minimizando intervenções na sua casa."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Qual o investimento mínimo para começar?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A automação pode ser implementada gradualmente, começando com sistemas básicos como controle de iluminação ou segurança. O investimento inicial varia conforme suas necessidades, mas temos opções para diferentes orçamentos. Entre em contato para uma avaliação personalizada."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Quanto tempo leva para instalar um sistema de automação?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "O tempo de instalação varia de acordo com a complexidade do projeto. Sistemas básicos podem ser instalados em 1-2 dias, enquanto projetos completos podem levar algumas semanas. Trabalhamos para minimizar transtornos durante a instalação."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Vocês oferecem suporte técnico após a instalação?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sim, oferecemos suporte técnico completo após a instalação. Nossos planos de manutenção incluem visitas periódicas, suporte remoto e atendimento emergencial para garantir que seu sistema funcione sempre perfeitamente."
+                  }
+                }
+              ]
+            }
+            </script>
             <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
                 <details class="faq-item" itemscope itemtype="https://schema.org/Question">
                     <summary class="faq-question" itemprop="name">O que é automação residencial?</summary>
