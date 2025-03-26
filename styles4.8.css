@@ -55,14 +55,15 @@ nav {
     padding: 1rem 5%;
     max-width: 1400px;
     margin: 0 auto;
+    flex-wrap: wrap;
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 1rem;
-    flex: 1;
-    margin-left: 0;
+    flex: 0 0 auto;
+    margin-right: 2rem;
     justify-content: flex-start;
 }
 
@@ -74,7 +75,7 @@ nav {
 .company-name {
     font-family: 'Quicksand', sans-serif;
     font-weight: 800;
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #4FB4FF;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     letter-spacing: 0.2px;
@@ -88,10 +89,11 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 2.5rem;
+    gap: 1.5rem;
     list-style: none;
     margin-left: auto;
-    padding-left: 2rem;
+    padding-left: 0;
+    flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -241,8 +243,34 @@ img {
 }
 
 /* Ajuste responsivo */
+/* Telas médias */
+@media (max-width: 992px) {
+    .logo {
+        margin-right: 1rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    .company-name {
+        font-size: 2rem;
+    }
+}
+
+/* Telas pequenas */
 @media (max-width: 768px) {
     /* Ajustes do Header */
+    header {
+        position: relative;
+    }
+    
+    .logo {
+        width: 100%;
+        justify-content: space-between;
+        padding-right: 3rem;
+    }
+    
     .logo img {
         height: 60px;
     }
@@ -275,7 +303,7 @@ img {
         display: block;
         position: absolute;
         right: 1rem;
-        top: 1rem;
+        top: 1.2rem;
         font-size: 1.5rem;
         color: var(--white);
         background: none;
