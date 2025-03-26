@@ -1242,7 +1242,7 @@ section {
 
 .post-content {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 120px auto 40px;
     padding: 3rem 2rem;
     line-height: 1.8;
     color: var(--text-color);
@@ -1278,6 +1278,44 @@ header nav a:hover {
 }
 
 /* Estilo para links de serviços */
+
+/* Estilos para páginas de serviço e outras páginas adicionais */
+.service-banner {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/hero-bg.jpg') no-repeat center center;
+    background-size: cover;
+    color: var(--white);
+    text-align: center;
+    padding: 8rem 2rem 4rem;
+    margin-top: 80px; /* Espaço para o cabeçalho fixo */
+}
+
+.service-banner h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.service-tagline {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.service-overview {
+    padding: 4rem 2rem;
+    background-color: var(--white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Ajuste para todas as seções principais de páginas adicionais */
+main > section:first-child:not(.hero) {
+    margin-top: 80px; /* Espaço para o cabeçalho fixo */
+}
+
 .service-link {
     display: inline-block;
     background-color: var(--secondary-color);
