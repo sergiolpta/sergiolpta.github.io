@@ -605,7 +605,7 @@
             <h2>Últimas Notícias</h2>
             <div class="blog-grid">
                 <article class="blog-post">
-                    <img src="images/zigbee-meta.jpg?v=20250326" loading="eager" fetchpriority="high" alt="Imagem sobre Zigbee" width="300" height="200" style="display: block; max-width: 100%; object-fit: cover;">
+                    <img src="images/zigbee-meta.jpg?v=20250326-2" loading="eager" fetchpriority="high" alt="Imagem sobre Zigbee" width="300" height="200" style="display: block; max-width: 100%; object-fit: cover;">
                     <h3>Como o Zigbee Está Transformando a Automação Residencial</h3>
                     <p>O Zigbee é um protocolo de comunicação sem fio projetado para redes de baixa potência...</p>
                     <a href="post-zigbee.html" class="read-more">Leia mais</a>
@@ -623,7 +623,7 @@
                     <a href="post-tendencias.html" class="read-more">Leia mais</a>
                 </article>
                 <article class="blog-post">
-                    <img src="images/multi.jpg?v=20250326" loading="eager" fetchpriority="high" alt="multiroom" width="300" height="200" style="display: block; max-width: 100%; object-fit: cover;">
+                    <img src="images/multi.jpg?v=20250326-2" loading="eager" fetchpriority="high" alt="multiroom" width="300" height="200" style="display: block; max-width: 100%; object-fit: cover;">
                     <h3>Saiba o que é o sistema Multiroom</h3>
                     <p>Um sistema de áudio multiroom é uma solução tecnológica que...</p>
                     <a href="post-multiroom.html" class="read-more">Leia mais</a>
@@ -707,7 +707,7 @@
                 if ('caches' in window) {
                     caches.keys().then(cacheNames => {
                         cacheNames.forEach(cacheName => {
-                            if (cacheName.startsWith('sergiolpta-site-') && cacheName !== 'sergiolpta-site-v1.9') {
+                            if (cacheName.startsWith('sergiolpta-site-') && cacheName !== 'sergiolpta-site-v2.0') {
                                 console.log('Limpando cache antigo:', cacheName);
                                 caches.delete(cacheName);
                             }
@@ -891,6 +891,26 @@
     
     <!-- Script de controle de cache -->
     <script src="js/cache-control.js"></script>
+    
+    <!-- Script para forçar o recarregamento de imagens -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Forçar recarregamento das imagens problemáticas
+            const imagesToReload = ['zigbee-meta.jpg', 'multi.jpg'];
+            
+            imagesToReload.forEach(imgName => {
+                const imgElements = document.querySelectorAll(`img[src*="${imgName}"]`);
+                imgElements.forEach(img => {
+                    // Adicionar um timestamp para forçar o recarregamento
+                    const currentSrc = img.src;
+                    img.src = '';
+                    setTimeout(() => {
+                        img.src = currentSrc + (currentSrc.includes('?') ? '&' : '?') + 'nocache=' + new Date().getTime();
+                    }, 50);
+                });
+            });
+        });
+    </script>
     <!-- Script de otimização de imagens -->
     <script src="js/image-optimizer.js"></script>
 </body>
