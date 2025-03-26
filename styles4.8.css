@@ -130,12 +130,19 @@ nav {
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Alinhamento ao topo em vez de centralizado */
     align-items: center;
     text-align: center;
     color: var(--white);
     padding: 0 1rem;
-    gap: 3rem;
+    gap: 2rem;
+    padding-top: 90px; /* Espaço para o header fixo */
+}
+
+/* Espaçador para garantir que o título fique visível em dispositivos móveis */
+.hero-spacer {
+    height: 80px; /* Altura fixa para garantir espaço suficiente */
+    width: 100%;
 }
 
 .hero h2 {
@@ -279,17 +286,24 @@ img {
 
     /* Ajustes da seção Hero */
     .hero {
-        padding-top: 160px; /* Aumentando significativamente o espaço para o header */
+        padding-top: 0; /* Removendo o padding-top, pois agora usamos o hero-spacer */
         height: auto;
         min-height: 100vh;
-        justify-content: flex-start; /* Alinha o conteúdo ao topo em vez de centralizar */
+        justify-content: flex-start;
+    }
+    
+    .hero-spacer {
+        height: 120px; /* Altura maior em dispositivos móveis */
     }
 
     .hero h1 {
         font-size: 2.2rem;
         padding: 0 1rem;
+        margin-top: 0; /* Remover margem superior */
         margin-bottom: 1.5rem;
         line-height: 1.3;
+        position: relative; /* Garantir que o título seja posicionado corretamente */
+        z-index: 5; /* Garantir que o título fique acima de outros elementos */
     }
 
     .hero p {
