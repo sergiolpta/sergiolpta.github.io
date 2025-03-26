@@ -78,13 +78,18 @@ nav {
     font-size: 2.5rem;
     color: var(--secondary-color); /* Usando a variável de cor secundária */
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    letter-spacing: 0.2px;
+    letter-spacing: -0.5px; /* Reduzindo o espaçamento entre letras */
     transition: var(--transition);
     white-space: nowrap;
 }
 
 .company-name:hover {
-    color: #66BFFF;
+    color: #3da278; /* Tom mais claro de verde azulado */
+}
+
+.company-name i {
+    margin: 0 -2px; /* Espaçamento negativo para aproximar o ícone das palavras */
+    font-size: 2rem; /* Ajustando o tamanho do ícone */
 }
 
 .nav-links {
