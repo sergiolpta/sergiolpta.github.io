@@ -756,5 +756,98 @@
             showCookieBanner();
         });
     </script>
+    
+    <!-- Script de verificação de desempenho (ativado apenas quando solicitado) -->
+    <script>
+        // Verificar se a página foi carregada com o parâmetro de performance
+        if (window.location.search.includes('performance=true')) {
+            // Carregar o script de verificação de desempenho
+            const script = document.createElement('script');
+            script.src = 'js/performance-check.js';
+            document.body.appendChild(script);
+            
+            // Adicionar evento para coletar e armazenar os dados de desempenho
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    // Coletar métricas de desempenho
+                    const perfData = window.performance.timing;
+                    const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+                    const domReadyTime = perfData.domComplete - perfData.domLoading;
+                    const domInteractive = perfData.domInteractive - perfData.navigationStart;
+                    
+                    // Obter recursos carregados
+                    const resources = window.performance.getEntriesByType('resource');
+                    
+                    // Contar recursos por tipo
+                    const resourceCounts = {
+                        total: resources.length,
+                        image: 0,
+                        css: 0,
+                        javascript: 0,
+                        font: 0,
+                        other: 0
+                    };
+                    
+                    // Calcular tamanho total dos recursos
+                    let totalSize = 0;
+                    
+                    resources.forEach(resource => {
+                        // Adicionar ao tamanho total
+                        if (resource.transferSize) {
+                            totalSize += resource.transferSize;
+                        }
+                        
+                        // Contar por tipo
+                        if (resource.name.match(/\.(jpg|jpeg|png|gif|webp|svg)(\?.*)?$/i)) {
+                            resourceCounts.image++;
+                        } else if (resource.name.match(/\.css(\?.*)?$/i)) {
+                            resourceCounts.css++;
+                        } else if (resource.name.match(/\.js(\?.*)?$/i)) {
+                            resourceCounts.javascript++;
+                        } else if (resource.name.match(/\.(woff|woff2|ttf|otf|eot)(\?.*)?$/i)) {
+                            resourceCounts.font++;
+                        } else {
+                            resourceCounts.other++;
+                        }
+                    });
+                    
+                    // Converter bytes para formato legível
+                    function formatBytes(bytes, decimals = 2) {
+                        if (bytes === 0) return '0 Bytes';
+                        
+                        const k = 1024;
+                        const dm = decimals < 0 ? 0 : decimals;
+                        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                        
+                        const i = Math.floor(Math.log(bytes) / Math.log(k));
+                        
+                        return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+                    }
+                    
+                    // Armazenar os dados no localStorage
+                    const performanceData = {
+                        loadTime: (pageLoadTime / 1000).toFixed(2),
+                        domReady: (domReadyTime / 1000).toFixed(2),
+                        domInteractive: (domInteractive / 1000).toFixed(2),
+                        totalSize: formatBytes(totalSize),
+                        totalResources: resourceCounts.total,
+                        imageResources: resourceCounts.image,
+                        cssResources: resourceCounts.css,
+                        jsResources: resourceCounts.javascript,
+                        fontResources: resourceCounts.font,
+                        otherResources: resourceCounts.other
+                    };
+                    
+                    localStorage.setItem('performanceData', JSON.stringify(performanceData));
+                    
+                    // Redirecionar para a página de resultados após 3 segundos
+                    setTimeout(function() {
+                        window.location.href = 'performance.html?results=true';
+                    }, 3000);
+                    
+                }, 1000);
+            });
+        }
+    </script>
 </body>
 </html> 

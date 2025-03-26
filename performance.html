@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Desempenho - Nexus Home LP</title>
+    <link rel="stylesheet" href="styles4.8.css">
+    <style>
+        .performance-container {
+            max-width: 800px;
+            margin: 120px auto 40px;
+            padding: 2rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .metrics-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: var(--light-gray);
+            border-radius: 6px;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .metric-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .metric-card h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .optimizations {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .optimizations h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .optimizations ul {
+            padding-left: 1.5rem;
+        }
+        
+        .optimizations li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .test-button {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        .test-button:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .back-link {
+            display: block;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        #performance-results {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #f0f8ff;
+            border-radius: 6px;
+            border-left: 4px solid var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.jpg" alt="Nexus Home LP Logo" width="90" height="90" loading="eager" fetchpriority="high">
+            </a>
+            <h1 class="company-name">Nexus Home LP</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="performance-tool" class="performance-container">
+        <h1>Análise de Desempenho</h1>
+        <p>Esta página mostra as métricas de desempenho do site após as otimizações implementadas. As métricas são coletadas em tempo real usando a API Performance do navegador.</p>
+        
+        <div class="optimizations">
+            <h2>Otimizações Implementadas</h2>
+            <ul>
+                <li><strong>Lazy Loading de Imagens:</strong> As imagens são carregadas apenas quando estão próximas de entrar na viewport, reduzindo o tempo de carregamento inicial da página.</li>
+                <li><strong>Minificação de CSS e JavaScript:</strong> Arquivos CSS e JavaScript foram minificados para reduzir seu tamanho, resultando em downloads mais rápidos.</li>
+                <li><strong>Correções de Layout:</strong> Ajustes no layout para melhorar a experiência do usuário, especialmente em dispositivos móveis.</li>
+                <li><strong>Dimensões Explícitas para Imagens:</strong> Todas as imagens têm largura e altura definidas para evitar layout shifts durante o carregamento.</li>
+                <li><strong>Priorização de Recursos Críticos:</strong> Recursos essenciais como o logo têm carregamento prioritário.</li>
+            </ul>
+        </div>
+        
+        <div class="metrics-section">
+            <h2>Métricas de Desempenho</h2>
+            <p>Clique no botão abaixo para testar o desempenho da página inicial:</p>
+            <a href="index.html" class="test-button" id="test-button">Testar Página Inicial</a>
+            
+            <div id="performance-results" style="display: none;">
+                <h3>Resultados da Análise</h3>
+                <div id="results-content">
+                    <p>Clique no botão acima para iniciar o teste.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="metrics-section">
+            <h2>Recomendações para Testes Externos</h2>
+            <p>Para uma análise mais completa, recomendamos usar as seguintes ferramentas:</p>
+            <ul>
+                <li><a href="https://pagespeed.web.dev/" target="_blank">Google PageSpeed Insights</a> - Análise completa de desempenho e acessibilidade</li>
+                <li><a href="https://www.webpagetest.org/" target="_blank">WebPageTest</a> - Teste de velocidade detalhado em diferentes dispositivos e localizações</li>
+                <li><a href="https://web.dev/measure/" target="_blank">web.dev Measure</a> - Avaliação baseada nas métricas Core Web Vitals</li>
+            </ul>
+        </div>
+        
+        <a href="index.html" class="back-link">Voltar para a página inicial</a>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Nexus Home LP</h3>
+                <p>Soluções inteligentes para sua casa e empresa.</p>
+            </div>
+            <p class="copyright">&copy; 2024 Nexus Home LP. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('test-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Redirecionar para a página inicial com parâmetro para ativar o script de performance
+            window.location.href = 'index.html?performance=true';
+        });
+        
+        // Verificar se voltamos de um teste
+        if (window.location.search.includes('results=true')) {
+            const resultsDiv = document.getElementById('performance-results');
+            resultsDiv.style.display = 'block';
+            
+            // Recuperar dados do localStorage
+            const performanceData = JSON.parse(localStorage.getItem('performanceData'));
+            if (performanceData) {
+                const resultsContent = document.getElementById('results-content');
+                
+                resultsContent.innerHTML = `
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <h3>Tempo de Carregamento</h3>
+                            <div class="metric-value">${performanceData.loadTime}s</div>
+                            <p>Tempo total para carregar a página</p>
+                        </div>
+                        <div class="metric-card">
+                            <h3>DOM Interativo</h3>
+                            <div class="metric-value">${performanceData.domInteractive}s</div>
+                            <p>Tempo até o DOM estar pronto para interação</p>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Tamanho Total</h3>
+                            <div class="metric-value">${performanceData.totalSize}</div>
+                            <p>Tamanho total dos recursos carregados</p>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Recursos</h3>
+                            <div class="metric-value">${performanceData.totalResources}</div>
+                            <p>Número total de recursos carregados</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <h4>Detalhes dos Recursos:</h4>
+                        <ul>
+                            <li>Imagens: ${performanceData.imageResources}</li>
+                            <li>CSS: ${performanceData.cssResources}</li>
+                            <li>JavaScript: ${performanceData.jsResources}</li>
+                            <li>Fontes: ${performanceData.fontResources}</li>
+                            <li>Outros: ${performanceData.otherResources}</li>
+                        </ul>
+                    </div>
+                `;
+            } else {
+                document.getElementById('results-content').innerHTML = '<p>Nenhum dado de desempenho encontrado. Por favor, execute o teste novamente.</p>';
+            }
+        }
+    </script>
+    
+    <!-- Script de verificação de desempenho -->
+    <script src="js/performance-check.js"></script>
+</body>
+</html>
