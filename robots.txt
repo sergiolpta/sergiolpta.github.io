@@ -2,4 +2,8 @@ User-agent: *
 Allow: /
 Disallow: /device-tester.html
 
-Sitemap: https://nexushomelp.tec.br/sitemap.xml
+# Permitir explicitamente páginas importantes
+Allow: /index.html
+Allow: /privacidade.html
+
+Sitemap: https://sergiolpta.github.io/sitemap.xml
