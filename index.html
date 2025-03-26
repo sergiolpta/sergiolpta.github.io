@@ -15,11 +15,11 @@
     <!-- Meta tags de segurança aprimoradas -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
-        script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.googletagmanager.com;
+        script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
-        img-src 'self' https://images.unsplash.com data:;
+        img-src 'self' https://images.unsplash.com data: https://www.google-analytics.com;
         font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
-        connect-src 'self' https://formspree.io;
+        connect-src 'self' https://formspree.io https://www.google-analytics.com;
         frame-src 'none';
         object-src 'none';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -44,10 +44,16 @@
     <title>Nexus Home LP - Automação Residencial e Comercial em Lençóis Paulista</title>
     <link rel="canonical" href="https://www.nexushomelp.com.br">
     
-    <!-- Preload de recursos críticos -->
-    <link rel="preload" href="images/logo.jpg" as="image">
+    <!-- Preload e otimização de recursos críticos -->
+    <link rel="preload" href="images/logo.jpg" as="image" fetchpriority="high">
+    <link rel="preload" href="styles4.8.css?v=1.5" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
     
     <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -55,8 +61,13 @@
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     
+    <!-- Meta tags para controle de cache -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
     <!-- Estilos -->
-    <link rel="stylesheet" href="styles4.8.css?v=1.4">
+    <link rel="stylesheet" href="styles4.8.css?v=1.5">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -68,23 +79,109 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Nexus Home">
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PSLG3GQJW"></script>
+    <!-- Google Analytics com Consent Mode e configuração avançada de privacidade -->
     <script>
+      // Inicializa o dataLayer
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      
+      // Configura o Consent Mode antes de carregar o GA
+      gtag = function() { dataLayer.push(arguments); }
+      
+      // Define o consentimento padrão (requerido para GDPR/LGPD)
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'granted',
+        'functionality_storage': 'granted',
+        'personalization_storage': 'denied',
+        'security_storage': 'granted',
+        'wait_for_update': 500
+      });
+      
+      // Inicializa o GA
       gtag('js', new Date());
-
-      gtag('config', 'G-8PSLG3GQJW');
+      
+      // Configurações avançadas para cookies e privacidade
+      const analyticsConfig = {
+        'cookie_flags': 'SameSite=Lax;Secure',
+        'cookie_domain': window.location.hostname,
+        'cookie_update': true,
+        'cookie_expires': 63072000, // 2 anos em segundos
+        'client_storage': 'localStorage',
+        'anonymize_ip': true,
+        'transport_type': 'beacon',
+        'restricted_data_processing': true
+      };
+      
+      // Configuração para ambos os IDs
+      gtag('config', 'G-8PSLG3GQJW', analyticsConfig);
+      gtag('config', 'G-NJ2FKS3M47', analyticsConfig);
+    </script>
+    
+    <!-- Carrega o script do GA após as configurações de consentimento -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PSLG3GQJW"></script>
+    
+    <!-- Dados estruturados Schema.org para SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Nexus Home LP",
+      "image": "https://nexushomelp.tec.br/images/logo.jpg",
+      "@id": "https://nexushomelp.tec.br",
+      "url": "https://nexushomelp.tec.br",
+      "telephone": "+55 14 99999-9999",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Exemplo, 123",
+        "addressLocality": "Lençóis Paulista",
+        "addressRegion": "SP",
+        "postalCode": "18680-000",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -22.6012,
+        "longitude": -48.8016
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "13:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/nexushomelp",
+        "https://www.instagram.com/nexushomelp"
+      ],
+      "priceRange": "$$",
+      "description": "Especialistas em automação residencial e comercial em Lençóis Paulista. Soluções em luminotécnica, sonorização, home theater e segurança."
+    }
     </script>
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">
-                <img src="images/logo.jpg" alt="Nexus Home LP Logo">
+                <img src="images/logo.jpg" alt="Nexus Home LP Logo" loading="eager" width="90" height="90">
                 <span class="company-name">Nexus <i class="fas fa-wifi"></i> Home LP</span>
             </div>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul class="nav-links">
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#servicos">Serviços</a></li>
@@ -96,9 +193,21 @@
     </header>
 
     <main>
+        <!-- Breadcrumbs estruturados para SEO -->
+        <nav aria-label="Breadcrumb" class="breadcrumbs">
+            <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/">
+                        <span itemprop="name">Início</span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                </li>
+            </ol>
+        </nav>
+        
         <!-- Seção Hero -->
-        <section id="inicio" class="hero">
-            <h2 class="slogan">Tecnologia e conforto em perfeita harmonia</h2>
+        <section id="inicio" class="hero" aria-labelledby="hero-heading">
+            <h1 id="hero-heading" class="slogan">Tecnologia e conforto em perfeita harmonia</h1>
             <p>Soluções completas em automação residencial, comercial, sonorização, home theater e iluminação</p>
             
             <div class="hero-icons">
@@ -154,11 +263,11 @@
         </section>
 
         <!-- Nova Seção Serviços -->
-        <section id="servicos" class="services">
-            <h2>Nossos Serviços</h2>
+        <section id="servicos" class="services" aria-labelledby="servicos-heading">
+            <h2 id="servicos-heading">Nossos Serviços</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <i class="fas fa-home-lg-alt"></i> <!-- Ícone atualizado -->
+                    <i class="fas fa-home-lg-alt" aria-hidden="true"></i> <!-- Ícone atualizado -->
                     <h3>Automação Residencial</h3>
                     <p>Transforme sua casa em um ambiente inteligente e conectado, controlando iluminação, climatização, segurança e entretenimento.</p>
                 </div>
@@ -207,100 +316,117 @@
             </div>
         </section>
 
-        <!-- Substitua a seção FAQ atual por esta -->
-        <section id="faq" class="faq-section">
-            <h2 class="faq-title">Perguntas Frequentes</h2>
-            <div class="faq-list">
-                <details class="faq-item">
-                    <summary class="faq-question">O que é automação residencial?</summary>
-                    <p class="faq-answer">Automação residencial é um conjunto de tecnologias que permite controlar diversos aspectos da sua casa como iluminação, climatização, segurança e entretenimento de forma integrada e inteligente.</p>
+        <!-- Seção FAQ com marcadores estruturados para SEO -->
+        <section id="faq" class="faq-section" aria-labelledby="faq-heading">
+            <h2 id="faq-heading" class="faq-title">Perguntas Frequentes</h2>
+            <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+                <details class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <summary class="faq-question" itemprop="name">O que é automação residencial?</summary>
+                    <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+                        <p class="faq-answer" itemprop="text">Automação residencial é um conjunto de tecnologias que permite controlar diversos aspectos da sua casa como iluminação, climatização, segurança e entretenimento de forma integrada e inteligente.</p>
+                    </div>
                 </details>
 
-                <details class="faq-item">
-                    <summary class="faq-question">O que é Zigbee e por que é importante na automação?</summary>
-                    <p class="faq-answer">Zigbee é um protocolo de comunicação sem fio, específico para automação, que oferece alta confiabilidade, baixo consumo de energia e excelente alcance. É ideal para automação residencial pois permite conectar centenas de dispositivos sem interferência, formando uma rede mesh onde cada dispositivo funciona como repetidor de sinal.</p>
+                <details class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <summary class="faq-question" itemprop="name">O que é Zigbee e por que é importante na automação?</summary>
+                    <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+                        <p class="faq-answer" itemprop="text">Zigbee é um protocolo de comunicação sem fio, específico para automação, que oferece alta confiabilidade, baixo consumo de energia e excelente alcance. É ideal para automação residencial pois permite conectar centenas de dispositivos sem interferência, formando uma rede mesh onde cada dispositivo funciona como repetidor de sinal.</p>
+                    </div>
                 </details>
 
-                <details class="faq-item">
-                    <summary class="faq-question">Como funciona a sonorização de ambientes?</summary>
-                    <p class="faq-answer">A sonorização de ambientes permite distribuir música em diferentes cômodos da casa, com controle individual de volume e seleção de conteúdo. Utilizamos equipamentos profissionais e um projeto acústico personalizado para garantir a melhor qualidade sonora em cada ambiente, com a possibilidade de integração com serviços de streaming e controle via smartphone.</p>
+                <details class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <summary class="faq-question" itemprop="name">Como funciona a sonorização de ambientes?</summary>
+                    <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+                        <p class="faq-answer" itemprop="text">A sonorização de ambientes permite distribuir música em diferentes cômodos da casa, com controle individual de volume e seleção de conteúdo. Utilizamos equipamentos profissionais e um projeto acústico personalizado para garantir a melhor qualidade sonora em cada ambiente, com a possibilidade de integração com serviços de streaming e controle via smartphone.</p>
+                    </div>
                 </details>
 
-                <details class="faq-item">
-                    <summary class="faq-question">Por que preciso de uma rede doméstica robusta?</summary>
-                    <p class="faq-answer">Uma rede doméstica bem estruturada é a base de qualquer projeto de automação. Instalamos equipamentos profissionais, com roteadores e switches gerenciáveis, separação de redes (IoT, visitantes, principal) e cobertura Wi-Fi otimizada para garantir a estabilidade e segurança de todos os dispositivos conectados.</p>
+                <details class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <summary class="faq-question" itemprop="name">Por que preciso de uma rede doméstica robusta?</summary>
+                    <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+                        <p class="faq-answer" itemprop="text">Uma rede doméstica bem estruturada é a base de qualquer projeto de automação. Instalamos equipamentos profissionais, com roteadores e switches gerenciáveis, separação de redes (IoT, visitantes, principal) e cobertura Wi-Fi otimizada para garantir a estabilidade e segurança de todos os dispositivos conectados.</p>
+                    </div>
                 </details>
 
-                <details class="faq-item">
-                    <summary class="faq-question">Como funciona a integração entre os diferentes sistemas?</summary>
-                    <p class="faq-answer">Utilizamos centrais de automação inteligentes que permitem integrar diferentes protocolos e sistemas (Zigbee, Wi-Fi, IR) em uma única interface. Assim, você pode controlar iluminação, som, climatização, cortinas e segurança de forma centralizada através de um aplicativo ou painéis de controle.</p>
+                <details class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <summary class="faq-question" itemprop="name">Como funciona a integração entre os diferentes sistemas?</summary>
+                    <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+                        <p class="faq-answer" itemprop="text">Utilizamos centrais de automação inteligentes que permitem integrar diferentes protocolos e sistemas (Zigbee, Wi-Fi, IR) em uma única interface. Assim, você pode controlar iluminação, som, climatização, cortinas e segurança de forma centralizada através de um aplicativo ou painéis de controle.</p>
+                    </div>
                 </details>
 
-                <details class="faq-item">
-                    <summary class="faq-question">É possível automatizar uma casa já construída?</summary>
-                    <p class="faq-answer">Sim! Oferecemos soluções que podem ser implementadas em casas já construídas, com interferência mínima na estrutura existente. Utilizamos tecnologias sem fio e adaptadores inteligentes que não requerem grandes obras.</p>
+                <details class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <summary class="faq-question" itemprop="name">É possível automatizar uma casa já construída?</summary>
+                    <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+                        <p class="faq-answer" itemprop="text">Sim! Oferecemos soluções que podem ser implementadas em casas já construídas, com interferência mínima na estrutura existente. Utilizamos tecnologias sem fio e adaptadores inteligentes que não requerem grandes obras.</p>
+                    </div>
                 </details>
 
-                <details class="faq-item">
-                    <summary class="faq-question">Qual o investimento necessário?</summary>
-                    <p class="faq-answer">O investimento varia de acordo com o projeto e suas necessidades. Trabalhamos com diferentes opções e desenvolvemos soluções personalizadas para cada cliente, podendo fazer a implementação em fases para melhor adequação ao orçamento.</p>
+                <details class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <summary class="faq-question" itemprop="name">Qual o investimento necessário?</summary>
+                    <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+                        <p class="faq-answer" itemprop="text">O investimento varia de acordo com o projeto e suas necessidades. Trabalhamos com diferentes opções e desenvolvemos soluções personalizadas para cada cliente, podendo fazer a implementação em fases para melhor adequação ao orçamento.</p>
+                    </div>
                 </details>
             </div>
         </section>
 
-        <!-- Substitua a seção Projetos por Quem Somos -->
-        <section id="quem-somos" class="about-us">
-            <h2>Quem Somos</h2>
+        <!-- Seção Quem Somos com melhor semântica para SEO -->
+        <section id="quem-somos" class="about-us" aria-labelledby="quem-somos-heading">
+            <h2 id="quem-somos-heading">Quem Somos</h2>
             <p>A Nexus Home LP é uma empresa dedicada a transformar ambientes através da automação inteligente. Com anos de experiência no mercado, oferecemos soluções personalizadas que combinam tecnologia de ponta com conforto e segurança.</p>
             
             <div class="about-us-details">
                 <div class="about-item">
-                    <h3>Missão</h3>
+                    <h3 id="missao-heading">Missão</h3>
                     <p>Proporcionar soluções inovadoras em automação que melhorem a qualidade de vida e a eficiência dos nossos clientes.</p>
                 </div>
                 <div class="about-item">
-                    <h3>Visão</h3>
+                    <h3 id="visao-heading">Visão</h3>
                     <p>Ser referência em automação residencial e comercial, reconhecida pela excelência e inovação em nossos serviços.</p>
                 </div>
                 <div class="about-item">
-                    <h3>Valores</h3>
+                    <h3 id="valores-heading">Valores</h3>
                     <p>Comprometimento, inovação, qualidade, ética e respeito ao cliente.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Seção contato... -->
-        <section id="contato" class="contact">
-            <h2>Entre em Contato</h2>
+        <!-- Seção contato com melhor semântica para SEO e acessibilidade -->
+        <section id="contato" class="contact" aria-labelledby="contato-heading" itemscope itemtype="https://schema.org/ContactPage">
+            <h2 id="contato-heading">Entre em Contato</h2>
             <div class="contact-container">
-                <form id="contact-form" action="https://formspree.io/f/xgvozkkg" method="POST" onsubmit="return validateForm()">
+                <form id="contact-form" action="https://formspree.io/f/xgvozkkg" method="POST" onsubmit="return validateForm()" aria-label="Formulário de contato">
                     <input type="text" name="nome" placeholder="Nome" required 
                            pattern="[A-Za-zÀ-ÿ\s]{3,}" 
-                           title="Por favor, insira um nome válido">
+                           title="Por favor, insira um nome válido"
+                           autocomplete="name">
                     
-                    <input type="email" name="email" placeholder="E-mail" required>
+                    <input type="email" name="email" placeholder="E-mail" required
+                           autocomplete="email" id="email">
                     
                     <input type="tel" name="telefone" placeholder="Telefone" required 
                            pattern="\([0-9]{2}\)\s?[0-9]{4,5}-[0-9]{4}" 
-                           title="Por favor, insira um telefone no formato (XX) XXXXX-XXXX">
+                           title="Por favor, insira um telefone no formato (XX) XXXXX-XXXX"
+                           autocomplete="tel">
                     
                     <textarea name="mensagem" placeholder="Mensagem" required 
-                              minlength="10"></textarea>
+                              minlength="10" autocomplete="off"></textarea>
                     
                     <button type="submit">Enviar Mensagem</button>
                 </form>
-                <div class="contact-info">
-                    <h3>Informações de Contato</h3>
-                    <p><i class="fas fa-globe"></i> nexushomelp.tec.br</p>
-                    <p><i class="fas fa-phone"></i> (14) 99910-1050</p>
-                    <p><i class="fab fa-whatsapp"></i> (14) 99910-1050</p>
-                    <p><i class="fas fa-envelope"></i> nexushomelp@gmail.com</p>
+                <div class="contact-info" itemscope itemtype="https://schema.org/Organization">
+                    <h3 id="info-contato-heading">Informações de Contato</h3>
+                    <p><i class="fas fa-globe" aria-hidden="true"></i> <span itemprop="url">nexushomelp.tec.br</span></p>
+                    <p><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+5514999101050" itemprop="telephone">(14) 99910-1050</a></p>
+                    <p><i class="fab fa-whatsapp" aria-hidden="true"></i> <a href="https://wa.me/5514999101050" target="_blank" rel="noopener">(14) 99910-1050</a></p>
+                    <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:nexushomelp@gmail.com" itemprop="email">nexushomelp@gmail.com</a></p>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/nexushomelp" target="_blank" aria-label="Facebook">
-                            <i class="fab fa-facebook"></i> /nexushomelp
+                        <a href="https://www.facebook.com/nexushomelp" target="_blank" rel="noopener" aria-label="Facebook da Nexus Home LP" itemprop="sameAs">
+                            <i class="fab fa-facebook" aria-hidden="true"></i> <span>/nexushomelp</span>
                         </a>
-                        <a href="https://www.instagram.com/nexus.homelp" target="_blank" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i> @nexus.homelp
+                        <a href="https://www.instagram.com/nexus.homelp" target="_blank" rel="noopener" aria-label="Instagram da Nexus Home LP" itemprop="sameAs">
+                            <i class="fab fa-instagram" aria-hidden="true"></i> <span>@nexus.homelp</span>
                         </a>
                     </div>
                 </div>
@@ -331,7 +457,7 @@
             <h2>Últimas Notícias</h2>
             <div class="blog-grid">
                 <article class="blog-post">
-                    <img src="images/zlogo.png" alt="Imagem sobre Zigbee">
+                    <img src="images/zlogo.png" alt="Imagem sobre Zigbee" loading="lazy" width="300" height="200">
                     <h3>Como o Zigbee Está Transformando a Automação Residencial</h3>
                     <p>O Zigbee é um protocolo de comunicação sem fio projetado para redes de baixa potência...</p>
                     <a href="post-zigbee.html" class="read-more">Leia mais</a>
@@ -364,6 +490,20 @@
             </div>
         </section>
     </main>
+
+    <script>
+        // Menu mobile toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
 
     <footer>
         <div class="footer-content">

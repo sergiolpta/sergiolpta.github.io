@@ -1,21 +1,62 @@
 {
-    "name": "Nexus Home LP",
-    "short_name": "Nexus Home",
-    "description": "Soluções em automação residencial e comercial",
-    "start_url": "/",
+    "name": "Nexus Home LP - Automação Residencial e Comercial",
+    "short_name": "Nexus Home LP",
+    "description": "Soluções completas em automação residencial e comercial em Lençóis Paulista. Especialistas em luminotécnica, sonorização e home theater.",
+    "start_url": "/?source=pwa",
+    "scope": "/",
     "display": "standalone",
+    "orientation": "portrait",
     "background_color": "#1a2a3a",
     "theme_color": "#4FB4FF",
+    "lang": "pt-BR",
+    "dir": "ltr",
+    "categories": ["business", "technology", "home", "lifestyle"],
     "icons": [
         {
             "src": "images/android-chrome-192x192.png",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         },
         {
             "src": "images/android-chrome-512x512.png",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         }
-    ]
-} 
+    ],
+    "screenshots": [
+        {
+            "src": "images/screenshot-desktop.jpg",
+            "sizes": "1280x800",
+            "type": "image/jpeg",
+            "platform": "wide",
+            "label": "Tela inicial da Nexus Home LP em desktop"
+        },
+        {
+            "src": "images/screenshot-mobile.jpg",
+            "sizes": "750x1334",
+            "type": "image/jpeg",
+            "platform": "narrow",
+            "label": "Tela inicial da Nexus Home LP em dispositivos móveis"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Contato",
+            "short_name": "Contato",
+            "description": "Entre em contato com a Nexus Home LP",
+            "url": "/#contato",
+            "icons": [{ "src": "images/contact-icon.png", "sizes": "96x96" }]
+        },
+        {
+            "name": "Serviços",
+            "short_name": "Serviços",
+            "description": "Conheça nossos serviços",
+            "url": "/#servicos",
+            "icons": [{ "src": "images/services-icon.png", "sizes": "96x96" }]
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false
+}

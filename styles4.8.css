@@ -218,13 +218,131 @@ nav {
     margin-top: 0.8rem;
 }
 
+/* Otimização de imagens */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 /* Ajuste responsivo */
 @media (max-width: 768px) {
+    /* Ajustes do Header */
+    .logo img {
+        height: 60px;
+    }
+
+    .company-name {
+        font-size: 1.8rem;
+    }
+
+    nav {
+        flex-direction: column;
+        padding: 0.5rem 3%;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0;
+        text-align: center;
+        background: var(--header-bg);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* Botão do menu mobile */
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        font-size: 1.5rem;
+        color: var(--white);
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    /* Ajustes da seção Hero */
+    .hero {
+        padding-top: 100px;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
     .hero-icons {
         gap: 1rem;
         overflow-x: auto;
-        padding-bottom: 1rem;
+        padding: 1rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .icon-item {
+        flex: 0 0 calc(50% - 1rem);
+        margin-bottom: 1rem;
+    }
+
+    .tech-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 32px !important;
+        padding: 10px;
+    }
+
+    .icon-details {
+        width: 200px;
+        font-size: 0.8rem;
+    }
+
+    .hero-icons {
         -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Ajustes para imagens em mobile */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Ajustes para blog posts em mobile */
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .blog-post img {
+        height: auto;
+    }
+    
+    /* Ajustes para seção de serviços em mobile */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Ajustes para seção de contato em mobile */
+    .contact-container {
+        flex-direction: column;
+    }
+    
+    .contact-form, .contact-info {
+        width: 100%;
     }
     
     .tech-icon {
@@ -245,6 +363,35 @@ nav {
     .company-name {
         font-size: 1.8rem;
     }
+}
+
+/* Breadcrumbs para SEO */
+.breadcrumbs {
+    padding: 0.5rem 1rem;
+    background-color: var(--header-bg);
+    color: var(--white);
+    font-size: 0.9rem;
+    display: none; /* Oculto por padrão, visível apenas para leitores de tela */
+}
+
+.breadcrumbs ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.breadcrumbs li {
+    display: inline;
+}
+
+.breadcrumbs a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
 }
 
 /* Serviços */

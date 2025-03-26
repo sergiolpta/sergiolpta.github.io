@@ -1,3 +1,5 @@
-echo "User-agent: *
+User-agent: *
 Allow: /
-Sitemap: https://nexushomelp.tec.br/sitemap.xml" > robots.txt
+Disallow: /device-tester.html
+
+Sitemap: https://nexushomelp.tec.br/sitemap.xml
