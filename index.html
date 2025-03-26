@@ -604,7 +604,7 @@
             <h2>Últimas Notícias</h2>
             <div class="blog-grid">
                 <article class="blog-post">
-                    <img src="images/zigbee_new.jpg?v=20250326" loading="eager" fetchpriority="high" alt="Imagem sobre Zigbee" width="300" height="200" style="display: block; max-width: 100%;">
+                    <img src="images/zigbee-meta.jpg?v=20250326" loading="eager" fetchpriority="high" alt="Imagem sobre Zigbee" width="300" height="200" style="display: block; max-width: 100%; object-fit: cover;">
                     <h3>Como o Zigbee Está Transformando a Automação Residencial</h3>
                     <p>O Zigbee é um protocolo de comunicação sem fio projetado para redes de baixa potência...</p>
                     <a href="post-zigbee.html" class="read-more">Leia mais</a>
@@ -706,7 +706,7 @@
                 if ('caches' in window) {
                     caches.keys().then(cacheNames => {
                         cacheNames.forEach(cacheName => {
-                            if (cacheName.startsWith('sergiolpta-site-') && cacheName !== 'sergiolpta-site-v1.4') {
+                            if (cacheName.startsWith('sergiolpta-site-') && cacheName !== 'sergiolpta-site-v1.5') {
                                 console.log('Limpando cache antigo:', cacheName);
                                 caches.delete(cacheName);
                             }
