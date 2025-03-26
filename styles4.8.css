@@ -1235,6 +1235,20 @@ section {
     text-align: justify;
 }
 
+/* Estilo para o link "Voltar para o Início" nas páginas de blog */
+header nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 1rem;
+    display: inline-block;
+    transition: var(--transition);
+}
+
+header nav a:hover {
+    color: var(--secondary-color);
+}
+
 /* Estilo para links de serviços */
 .service-link {
     display: inline-block;
