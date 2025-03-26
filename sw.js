@@ -1,10 +1,11 @@
-const CACHE_NAME = 'sergiolpta-site-v1.8';
+const CACHE_NAME = 'sergiolpta-site-v1.9';
 const urlsToCache = [
     '/',
     '/index.html',
     '/styles4.8.css',
     '/js/cache-control.js',
     '/site.webmanifest',
+    '/favicon.ico',
     '/images/logo.jpg',
     '/images/cta-bg.jpg',
     '/images/android-chrome-192x192.png',
