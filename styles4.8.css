@@ -76,7 +76,7 @@ nav {
     font-family: 'Quicksand', sans-serif;
     font-weight: 800;
     font-size: 2.5rem;
-    color: var(--secondary-color); /* Usando a variável de cor secundária */
+    color: #4A90E2; /* Azul claro */
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     letter-spacing: -0.5px; /* Reduzindo o espaçamento entre letras */
     transition: var(--transition);
@@ -84,7 +84,7 @@ nav {
 }
 
 .company-name:hover {
-    color: #3da278; /* Tom mais claro de verde azulado */
+    color: #70A9E8; /* Tom mais claro de azul */
 }
 
 .company-name i {
@@ -1270,6 +1270,18 @@ section {
     text-align: justify;
 }
 
+.post-image {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.post-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 /* Estilo para o link "Voltar para o Início" nas páginas de blog */
 header nav a {
     color: var(--white);
@@ -1340,3 +1352,17 @@ main > section:first-child:not(.hero) {
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 } 
+/* Estilo para o link de voltar nas páginas de posts */
+.back-link {
+    display: inline-block;
+    margin-left: 20px;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #3da278;
+    text-decoration: underline;
+}
