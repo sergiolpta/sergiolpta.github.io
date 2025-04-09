@@ -78,6 +78,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
+    <!-- Facebook SDK para API Facebook Empresarial -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '656575747158681',
+          cookie     : true,
+          xfbml      : true,
+          version    : 'v22.0'
+        });
+          
+        FB.AppEvents.logPageView();   
+          
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "https://connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+    
     <!-- PWA tags -->
     <meta name="theme-color" content="#2E8B57">
     <meta name="mobile-web-app-capable" content="yes">
@@ -190,7 +213,7 @@
       "image": "https://nexushomelp.tec.br/images/logo.jpg",
       "@id": "https://nexushomelp.tec.br",
       "url": "https://nexushomelp.tec.br",
-      "telephone": "+55 14 99999-9999",
+      "telephone": "+55 (14) 99910-1050",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Rua Exemplo, 123",
