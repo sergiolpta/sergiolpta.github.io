@@ -88,7 +88,12 @@
           version    : 'v22.0'
         });
           
-        FB.AppEvents.logPageView();   
+        FB.AppEvents.logPageView();
+        
+        // Verificar status de login ao inicializar
+        FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+        });
           
       };
 
@@ -99,6 +104,42 @@
          js.src = "https://connect.facebook.net/en_US/sdk.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
+       
+      // Função para processar a resposta de status
+      function statusChangeCallback(response) {
+        console.log('Status de login:', response);
+        
+        if (response.status === 'connected') {
+          // Usuário está logado no Facebook e no aplicativo
+          console.log('Usuário conectado ao Facebook e ao aplicativo');
+          console.log('User ID:', response.authResponse.userID);
+          console.log('Access Token:', response.authResponse.accessToken);
+          // Aqui você pode redirecionar para a experiência de usuário logado
+          document.getElementById('fb-login-status').innerHTML = 'Você está conectado!';
+        } else if (response.status === 'not_authorized') {
+          // Usuário está logado no Facebook, mas não no aplicativo
+          console.log('Usuário conectado ao Facebook, mas não ao aplicativo');
+          document.getElementById('fb-login-status').innerHTML = 'Por favor, autorize o aplicativo.';
+        } else {
+          // Usuário não está logado no Facebook
+          console.log('Usuário não está conectado ao Facebook');
+          document.getElementById('fb-login-status').innerHTML = 'Por favor, faça login no Facebook.';
+        }
+      }
+      
+      // Função para lidar com o botão de login
+      function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+        });
+      }
+      
+      // Função para iniciar o login do Facebook
+      function fbLogin() {
+        FB.login(function(response) {
+          statusChangeCallback(response);
+        }, {scope: 'public_profile,email'});
+      }
     </script>
     
     <!-- PWA tags -->
@@ -612,18 +653,28 @@
                     <p><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+5514999101050" itemprop="telephone">(14) 99910-1050</a></p>
                     <p><i class="fab fa-whatsapp" aria-hidden="true"></i> <a href="https://wa.me/5514999101050" target="_blank" rel="noopener">(14) 99910-1050</a></p>
                     <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:nexushomelp@gmail.com" itemprop="email">nexushomelp@gmail.com</a></p>
+                    <div class="contact-social">
+                    <h3>Redes Sociais</h3>
                     <div class="social-links">
                         <a href="https://www.facebook.com/nexushomelp" target="_blank" rel="noopener" aria-label="Facebook da Nexus Home LP" itemprop="sameAs">
                             <i class="fab fa-facebook" aria-hidden="true"></i> <span>/nexushomelp</span>
                         </a>
-                        <a href="https://www.instagram.com/nexus.homelp" target="_blank" rel="noopener" aria-label="Instagram da Nexus Home LP" itemprop="sameAs">
-                            <i class="fab fa-instagram" aria-hidden="true"></i> <span>@nexus.homelp</span>
+                        <a href="https://www.instagram.com/nexushomelp" target="_blank" rel="noopener" aria-label="Instagram da Nexus Home LP" itemprop="sameAs">
+                            <i class="fab fa-instagram" aria-hidden="true"></i> <span>@nexushomelp</span>
                         </a>
+                    </div>
+                    
+                    <!-- Facebook Login -->
+                    <div class="facebook-login" style="margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
+                        <h4 style="margin-bottom: 10px;">Login com Facebook</h4>
+                        <div id="fb-login-status" style="margin-bottom: 15px; font-size: 14px; color: #555;">Verificando status de login...</div>
+                        <button onclick="fbLogin()" style="background-color: #1877f2; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold;">
+                            <i class="fab fa-facebook-f" style="margin-right: 8px;"></i> Entrar com Facebook
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
-
         <!-- Seção de Compartilhamento Social -->
         <section id="social-share" class="social-share">
             <h2>Compartilhe nas Redes Sociais</h2>
