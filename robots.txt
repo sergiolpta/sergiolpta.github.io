@@ -7,4 +7,5 @@ Allow: /index.html
 Allow: /privacidade.html
 Allow: /automacao-residencial.html
 
-Sitemap: https://sergiolpta.github.io/sitemap.xml
+Sitemap: https://nexushomelp.tec.br/sitemap.xml
+#v1
