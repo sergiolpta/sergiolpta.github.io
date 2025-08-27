@@ -7,84 +7,84 @@
         http://www.google.com/schemas/sitemap-image/1.1
         http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
   <url>
-    <loc>https://sergiolpta.github.io/</loc>
+    <loc>https://nexushomelp.tec.br/</loc>
     <lastmod>2025-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://sergiolpta.github.io/images/logo.jpg</image:loc>
+      <image:loc>https://nexushomelp.tec.br/images/logo.jpg</image:loc>
       <image:title>Nexus Home LP Logo</image:title>
       <image:caption>Logo da Nexus Home LP - Automação Residencial e Comercial</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://sergiolpta.github.io/images/og-image.jpg</image:loc>
+      <image:loc>https://nexushomelp.tec.br/images/og-image.jpg</image:loc>
       <image:title>Nexus Home LP - Automação Residencial</image:title>
       <image:caption>Soluções em automação residencial e comercial em Lençóis Paulista</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://sergiolpta.github.io/device-tester.html</loc>
+    <loc>https://nexushomelp.tec.br/device-tester.html</loc>
     <lastmod>2025-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://sergiolpta.github.io/privacidade.html</loc>
+    <loc>https://nexushomelp.tec.br/privacidade.html</loc>
     <lastmod>2025-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sergiolpta.github.io/automacao-residencial.html</loc>
+    <loc>https://nexushomelp.tec.br/automacao-residencial.html</loc>
     <lastmod>2025-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://sergiolpta.github.io/images/automacao-residencial.jpg</image:loc>
+      <image:loc>https://nexushomelp.tec.br/images/automacao-residencial.jpg</image:loc>
       <image:title>Automação Residencial em Lençóis Paulista</image:title>
       <image:caption>Soluções completas em automação residencial para sua casa</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://sergiolpta.github.io/home-theater.html</loc>
+    <loc>https://nexushomelp.tec.br/home-theater.html</loc>
     <lastmod>2025-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://sergiolpta.github.io/images/home-theater.jpg</image:loc>
+      <image:loc>https://nexushomelp.tec.br/images/home-theater.jpg</image:loc>
       <image:title>Home Theater em Lençóis Paulista</image:title>
       <image:caption>Sistemas de home theater personalizados para sua casa</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://sergiolpta.github.io/automacao-comercial.html</loc>
+    <loc>https://nexushomelp.tec.br/automacao-comercial.html</loc>
     <lastmod>2025-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://sergiolpta.github.io/images/automacao-comercial.jpg</image:loc>
+      <image:loc>https://nexushomelp.tec.br/images/automacao-comercial.jpg</image:loc>
       <image:title>Automação Comercial em Lençóis Paulista</image:title>
       <image:caption>Soluções completas em automação para empresas</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://sergiolpta.github.io/sonorizacao.html</loc>
+    <loc>https://nexushomelp.tec.br/sonorizacao.html</loc>
     <lastmod>2025-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://sergiolpta.github.io/images/sonorizacao.jpg</image:loc>
+      <image:loc>https://nexushomelp.tec.br/images/sonorizacao.jpg</image:loc>
       <image:title>Sonorização em Lençóis Paulista</image:title>
       <image:caption>Sistemas de áudio profissional para ambientes residenciais e comerciais</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://sergiolpta.github.io/luminotecnica.html</loc>
+    <loc>https://nexushomelp.tec.br/luminotecnica.html</loc>
     <lastmod>2025-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://sergiolpta.github.io/images/luminotecnica.jpg</image:loc>
+      <image:loc>https://nexushomelp.tec.br/images/luminotecnica.jpg</image:loc>
       <image:title>Luminotécnica em Lençóis Paulista</image:title>
       <image:caption>Projetos de iluminação personalizados para residências e empresas</image:caption>
     </image:image>
