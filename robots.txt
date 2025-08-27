@@ -8,3 +8,4 @@ Allow: /privacidade.html
 Allow: /automacao-residencial.html
 
 Sitemap: https://nexushomelp.tec.br/sitemap.xml
+#v1
