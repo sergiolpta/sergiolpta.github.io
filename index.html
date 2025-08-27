@@ -30,7 +30,19 @@
     <title>Nexus Home LP | Automação Residencial, Comercial e Home Theater em Lençóis Paulista</title>
     <link rel="canonical" href="https://nexushomelp.tec.br/">
 
-    <!-- ... (demais links de estilos, scripts e meta tags de segurança permanecem iguais) ... -->
+    <!-- Preload dos arquivos de estilo -->
+    <link rel="preload" href="styles4.8.css?v=1.6" as="style">
+    <link rel="preload" href="styles-servicos.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
+
+    <!-- Arquivos de estilo efetivos -->
+    <link rel="stylesheet" href="styles4.8.css?v=1.6">
+    <link rel="stylesheet" href="styles-servicos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Dados estruturados JSON-LD atualizados -->
     <script type="application/ld+json">
@@ -186,31 +198,31 @@
             <h2 id="servicos-heading">Nossos Serviços</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <i class="fas fa-home-lg-alt" aria-hidden="true"></i> <!-- Ícone atualizado -->
+                    <i class="fas fa-home-lg-alt" aria-hidden="true"></i>
                     <h3>Automação Residencial</h3>
                     <p>Transforme sua casa em um ambiente inteligente e conectado, controlando iluminação, climatização, segurança e entretenimento.</p>
                     <a href="automacao-residencial.html" class="service-link">Saiba mais</a>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-building"></i> <!-- Ícone atualizado -->
+                    <i class="fas fa-building"></i>
                     <h3>Automação Comercial</h3>
                     <p>Soluções inteligentes para empresas, otimizando processos e reduzindo custos operacionais.</p>
                     <a href="automacao-comercial.html" class="service-link">Saiba mais</a>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-volume-up"></i> <!-- Ícone atualizado -->
+                    <i class="fas fa-volume-up"></i>
                     <h3>Sonorização</h3>
                     <p>Sistemas de áudio profissional para ambientes residenciais e comerciais, com qualidade excepcional.</p>
                     <a href="sonorizacao.html" class="service-link">Saiba mais</a>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-film"></i> <!-- Ícone atualizado -->
+                    <i class="fas fa-film"></i>
                     <h3>Home Theater</h3>
                     <p>Experiência cinematográfica em sua casa com equipamentos de última geração.</p>
                     <a href="home-theater.html" class="service-link">Saiba mais</a>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-lightbulb"></i> <!-- Ícone atualizado -->
+                    <i class="fas fa-lightbulb"></i>
                     <h3>Luminotécnica</h3>
                     <p>Projetos de iluminação personalizados que combinam eficiência energética e estética.</p>
                     <a href="luminotecnica.html" class="service-link">Saiba mais</a>
@@ -391,7 +403,7 @@
             </div>
         </section>
 
-        <!-- Seção de Parceiros -->        
+        <!-- Seção de Parceiros -->
         <section id="parceiros" class="partners" aria-labelledby="parceiros-heading">
             <h2 id="parceiros-heading">Nossos Parceiros</h2>
             <div class="partners-container">
@@ -795,4 +807,4 @@
     <!-- Script de otimização de imagens -->
     <script src="js/image-optimizer.js"></script>
 </body>
-</html> 
+</html>
