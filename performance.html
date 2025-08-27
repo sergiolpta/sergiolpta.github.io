@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análise de Desempenho - Nexus Home LP</title>
+    <title>Análise de Desempenho – Nexus Home LP</title>
+    <meta name="description" content="Ferramenta de análise de desempenho do site Nexus Home LP para monitorar tempos de carregamento, DOM interativo e uso de recursos após otimizações.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://nexushomelp.tec.br/performance.html">
     <link rel="stylesheet" href="styles4.8.css">
     <style>
         .performance-container {
@@ -14,66 +17,26 @@
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-        
-        h1 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        
-        .metrics-section {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background-color: var(--light-gray);
-            border-radius: 6px;
-        }
-        
+        h1 { color: var(--primary-color); margin-bottom: 1.5rem; text-align: center; }
+        .metrics-section { margin-top: 2rem; padding: 1.5rem; background-color: var(--light-gray); border-radius: 6px; }
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
-        
         .metric-card {
             background-color: white;
             padding: 1.5rem;
             border-radius: 6px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
-        
-        .metric-card h3 {
-            color: var(--secondary-color);
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-        }
-        
-        .metric-value {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-        
-        .optimizations {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background-color: #f8f9fa;
-            border-left: 4px solid var(--accent-color);
-        }
-        
-        .optimizations h2 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-        
-        .optimizations ul {
-            padding-left: 1.5rem;
-        }
-        
-        .optimizations li {
-            margin-bottom: 0.5rem;
-        }
-        
+        .metric-card h3 { color: var(--secondary-color); margin-top: 0; margin-bottom: 0.5rem; }
+        .metric-value { font-size: 2rem; font-weight: bold; color: var(--primary-color); }
+        .optimizations { margin-top: 2rem; padding: 1.5rem; background-color: #f8f9fa; border-left: 4px solid var(--accent-color); }
+        .optimizations h2 { color: var(--primary-color); margin-bottom: 1rem; }
+        .optimizations ul { padding-left: 1.5rem; }
+        .optimizations li { margin-bottom: 0.5rem; }
         .test-button {
             display: inline-block;
             margin-top: 1.5rem;
@@ -85,17 +48,8 @@
             font-weight: 500;
             transition: background-color 0.3s ease;
         }
-        
-        .test-button:hover {
-            background-color: var(--primary-color);
-        }
-        
-        .back-link {
-            display: block;
-            margin-top: 2rem;
-            text-align: center;
-        }
-        
+        .test-button:hover { background-color: var(--primary-color); }
+        .back-link { display: block; margin-top: 2rem; text-align: center; }
         #performance-results {
             margin-top: 2rem;
             padding: 1.5rem;
@@ -120,7 +74,7 @@
     <header>
         <div class="logo">
             <a href="index.html">
-                <img src="[^"]*" loading="lazy"]*" loading="eager" fetchpriority="high" alt="Nexus Home LP Logo" width="90" height="90" loading="eager" fetchpriority="high">
+                <img src="images/logo.jpg" alt="Nexus Home LP Logo" width="90" height="90" loading="eager" fetchpriority="high">
             </a>
             <h1 class="company-name">Nexus Home LP</h1>
         </div>
@@ -163,9 +117,9 @@
             <h2>Recomendações para Testes Externos</h2>
             <p>Para uma análise mais completa, recomendamos usar as seguintes ferramentas:</p>
             <ul>
-                <li><a href="https://pagespeed.web.dev/" target="_blank">Google PageSpeed Insights</a> - Análise completa de desempenho e acessibilidade</li>
-                <li><a href="https://www.webpagetest.org/" target="_blank">WebPageTest</a> - Teste de velocidade detalhado em diferentes dispositivos e localizações</li>
-                <li><a href="https://web.dev/measure/" target="_blank">web.dev Measure</a> - Avaliação baseada nas métricas Core Web Vitals</li>
+                <li><a href="https://pagespeed.web.dev/" target="_blank">Google PageSpeed Insights</a> – Análise completa de desempenho e acessibilidade</li>
+                <li><a href="https://www.webpagetest.org/" target="_blank">WebPageTest</a> – Teste de velocidade detalhado em diferentes dispositivos e localizações</li>
+                <li><a href="https://web.dev/measure/" target="_blank">web.dev Measure</a> – Avaliação baseada nas métricas Core Web Vitals</li>
             </ul>
         </div>
         
@@ -185,7 +139,6 @@
     <script>
         document.getElementById('test-button').addEventListener('click', function(e) {
             e.preventDefault();
-            
             // Redirecionar para a página inicial com parâmetro para ativar o script de performance
             window.location.href = 'index.html?performance=true';
         });
@@ -194,12 +147,10 @@
         if (window.location.search.includes('results=true')) {
             const resultsDiv = document.getElementById('performance-results');
             resultsDiv.style.display = 'block';
-            
             // Recuperar dados do localStorage
             const performanceData = JSON.parse(localStorage.getItem('performanceData'));
             if (performanceData) {
                 const resultsContent = document.getElementById('results-content');
-                
                 resultsContent.innerHTML = `
                     <div class="metrics-grid">
                         <div class="metric-card">
