@@ -1,11 +1,37 @@
+# 🌐 Diretrizes gerais para todos os bots
 User-agent: *
-Allow: /
 Disallow: /device-tester.html
+Disallow: /image-optimization.html
+Disallow: /minify.html
+Disallow: /performance.html
+Allow: /
 
-# Permitir explicitamente páginas importantes
-Allow: /index.html
-Allow: /privacidade.html
-Allow: /automacao-residencial.html
-
+# ✅ Sitemap principal
 Sitemap: https://nexushomelp.tec.br/sitemap.xml
-#v1
+
+# 🤖 Permitir acesso às principais IAs
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Anthropic-User
+Allow: /
+
+# 🔒 Bloquear seções internas (comentado por clareza — pode remover se não usar)
+# Disallow: /admin/
+# Disallow: /drafts/
+
