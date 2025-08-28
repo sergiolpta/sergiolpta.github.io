@@ -89,4 +89,48 @@
       <image:caption>Projetos de iluminação personalizados para residências e empresas</image:caption>
     </image:image>
   </url>
+  <url>
+    <loc>https://nexushomelp.tec.br/post-smart-home.html</loc>
+    <lastmod>2025-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://nexushomelp.tec.br/images/post-smart-home.jpg</image:loc>
+      <image:title>O que é o Home Assistant?</image:title>
+      <image:caption>Como o Home Assistant transforma sua automação residencial</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nexushomelp.tec.br/post-tendencias.html</loc>
+    <lastmod>2025-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://nexushomelp.tec.br/images/post-tendencias.jpg</image:loc>
+      <image:title>Tendências em Automação Residencial</image:title>
+      <image:caption>Gêmeos digitais, localização via Wi-Fi e regras inteligentes</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nexushomelp.tec.br/post-zigbee.html</loc>
+    <lastmod>2025-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://nexushomelp.tec.br/images/zigbee-meta.jpg</image:loc>
+      <image:title>Protocolo Zigbee na Automação</image:title>
+      <image:caption>Baixo consumo, malha mesh e segurança com Zigbee</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nexushomelp.tec.br/reportagem.html</loc>
+    <lastmod>2025-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://nexushomelp.tec.br/images/reportagem.jpg</image:loc>
+      <image:title>Inclusão pela Automação</image:title>
+      <image:caption>Como a automação residencial promove acessibilidade</image:caption>
+    </image:image>
+  </url>
 </urlset>
