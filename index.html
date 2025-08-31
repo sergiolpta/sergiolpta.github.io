@@ -47,58 +47,63 @@
 
     <!-- Dados estruturados JSON-LD atualizados -->
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://nexushomelp.tec.br/#organization",
+  "name": "Nexus Home LP",
+  "url": "https://nexushomelp.tec.br/",
+  "logo": "https://nexushomelp.tec.br/images/logo.jpg",
+  "image": "https://nexushomelp.tec.br/images/og-image.jpg",
+  "description": "Especialistas em automação residencial e comercial em Lençóis Paulista e Bauru. Soluções em luminotécnica, sonorização, home theater e segurança.",
+  "telephone": "+55 14 99910-1050",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Lençóis Paulista",
+    "addressRegion": "SP",
+    "addressCountry": "BR",
+    "postalCode": "18680-000"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -22.6026,
+    "longitude": -48.8044
+  },
+  "areaServed": [
     {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Nexus Home LP - Automação Residencial e Comercial",
-      "url": "https://nexushomelp.tec.br/",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://nexushomelp.tec.br/?s={search_term_string}",
-        "query-input": "required name=search_term_string"
-      },
-      "mainEntity": {
-        "@type": "LocalBusiness",
-        "name": "Nexus Home LP",
-        "image": "https://nexushomelp.tec.br/images/logo.jpg",
-        "@id": "https://nexushomelp.tec.br/#organization",
-        "url": "https://nexushomelp.tec.br/",
-        "telephone": "+5514999101050",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Lençóis Paulista",
-          "addressLocality": "Lençóis Paulista",
-          "addressRegion": "SP",
-          "postalCode": "18680-000",
-          "addressCountry": "BR"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": -22.6026,
-          "longitude": -48.8044
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-            "opens": "08:00",
-            "closes": "18:00"
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": "Saturday",
-            "opens": "09:00",
-            "closes": "13:00"
-          }
-        ],
-        "sameAs": [
-          "https://www.facebook.com/nexushomelp",
-          "https://www.instagram.com/nexus.homelp"
-        ],
-        "description": "Especialistas em automação residencial e comercial em Lençóis Paulista. Soluções em luminotécnica, sonorização, home theater e segurança."
-      }
+      "@type": "City",
+      "name": "Lençóis Paulista",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    },
+    {
+      "@type": "City",
+      "name": "Bauru",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
     }
-    </script>
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "13:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/nexushomelp",
+    "https://www.instagram.com/nexus.homelp"
+  ]
+}
+</script>
+
 </head>
 
 <body>
