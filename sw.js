@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sergiolpta-site-v2.1';
+const CACHE_NAME = 'sergiolpta-site-v2.2';
 const urlsToCache = [
     '/',
     '/styles4.8.css',
