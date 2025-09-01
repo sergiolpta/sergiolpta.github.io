@@ -4,11 +4,14 @@ Disallow: /device-tester.html
 Disallow: /image-optimization.html
 Disallow: /minify.html
 Disallow: /performance.html
-Allow: /
+
+# 🚫 Evitar versões erradas do domínio
+Disallow: http://nexushomelp.tec.br/
+Disallow: http://www.nexushomelp.tec.br/
+Disallow: https://www.nexushomelp.tec.br/
 
 # ✅ Sitemap principal
 Sitemap: https://nexushomelp.tec.br/sitemap.xml
-
 # 🤖 Permitir acesso às principais IAs
 User-agent: GPTBot
 Allow: /
