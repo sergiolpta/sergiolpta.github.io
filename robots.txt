@@ -10,6 +10,7 @@ Disallow: http://nexushomelp.tec.br/
 Disallow: http://www.nexushomelp.tec.br/
 Disallow: https://www.nexushomelp.tec.br/
 Disallow: /index.html
+Disallow: /?s=
 
 # ✅ Sitemap principal
 Sitemap: https://nexushomelp.tec.br/sitemap.xml
