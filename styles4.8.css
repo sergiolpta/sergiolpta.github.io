@@ -1460,3 +1460,39 @@ main > section:first-child:not(.hero) {
     color: #3da278;
     text-decoration: underline;
 }
+
+/* ------------------------------
+   FIX 1 — Ícones do Hero em linhas (wrap)
+   ------------------------------ */
+.hero-icons {
+  flex-wrap: wrap;              /* permite quebrar em 2+ linhas */
+  row-gap: 1.25rem;             /* espaçamento vertical entre linhas */
+  column-gap: 2rem;             /* espaçamento horizontal entre ícones */
+  justify-content: center;      /* centraliza o conjunto */
+  align-items: flex-start;
+}
+
+.hero-icons .icon-item {
+  display: inline-flex;         /* garante alinhamento do texto/ícone */
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 auto;               /* evita esticar para 100% (coluna) */
+}
+
+/* em telas médias/grandes, mantém blocos compactos em múltiplas linhas */
+@media (min-width: 769px) {
+  .hero-icons .icon-item { flex: 0 0 auto; }
+}
+
+/* ------------------------------
+   FIX 2 — “Nossos Serviços” em grade (sem cair para coluna única)
+   ------------------------------ */
+/* força 5 colunas em desktop grande, como era antes */
+@media (min-width: 1025px) {
+  .services-grid { grid-template-columns: repeat(5, 1fr); }
+}
+
+/* se quiser um comportamento mais fluido (opcional), troque por auto-fit:
+.services-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+*/
+
