@@ -41,8 +41,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-
-
     <!-- Arquivos de estilo efetivos -->
     <link rel="stylesheet" href="styles4.8.css?v=1.6">
     <link rel="stylesheet" href="styles-servicos.css">
@@ -50,8 +48,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 
-
-    <!-- Dados estruturados JSON-LD atualizados -->
+    <!-- Dados estruturados JSON-LD: LocalBusiness existente -->
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -78,32 +75,12 @@
     "longitude": -48.8044
   },
   "areaServed": [
-    {
-      "@type": "City",
-      "name": "Lençóis Paulista",
-      "addressRegion": "SP",
-      "addressCountry": "BR"
-    },
-    {
-      "@type": "City",
-      "name": "Bauru",
-      "addressRegion": "SP",
-      "addressCountry": "BR"
-    }
+    {"@type": "City", "name": "Lençóis Paulista", "addressRegion": "SP", "addressCountry": "BR"},
+    {"@type": "City", "name": "Bauru", "addressRegion": "SP", "addressCountry": "BR"}
   ],
   "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-      "opens": "08:00",
-      "closes": "18:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-      "opens": "09:00",
-      "closes": "13:00"
-    }
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:00"}
   ],
   "sameAs": [
     "https://www.facebook.com/nexushomelp",
@@ -112,6 +89,40 @@
 }
 </script>
 
+    <!-- JSON-LD complementar: Organization + Person + WebSite (sem duplicar LocalBusiness) -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://nexushomelp.tec.br/#org",
+      "name": "Nexus Home LP",
+      "url": "https://nexushomelp.tec.br",
+      "logo": "https://nexushomelp.tec.br/images/logo.jpg",
+      "founder": {"@id": "https://nexushomelp.tec.br/#sergio"}
+    },
+    {
+      "@type": "Person",
+      "@id": "https://nexushomelp.tec.br/#sergio",
+      "name": "Sérgio Guedes Ferreira Braz",
+      "jobTitle": "Fundador e Especialista em Automação Inteligente",
+      "url": "https://nexushomelp.tec.br"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://nexushomelp.tec.br/#website",
+      "name": "Nexus Home LP",
+      "url": "https://nexushomelp.tec.br",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://nexushomelp.tec.br/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
@@ -128,6 +139,8 @@
             <ul class="nav-links">
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#servicos">Serviços</a></li>
+                <!-- NOVO: link direto para a página dos Serviços Digitais -->
+                <li><a href="/servicos-digitais.html" title="Automação Digital e Integrações Inteligentes">Serviços Digitais</a></li>
                 <li><a href="#quem-somos">Quem Somos</a></li>
                 <li><a href="#parceiros">Parceiros</a></li>
                 <li><a href="#faq">Perguntas Frequentes</a></li>
@@ -208,6 +221,14 @@
             </div>
         </section>
 
+        <!-- NOVO: CTA curto para Serviços Digitais abaixo do Hero -->
+        <section class="cta-digital bg-dark text-center" style="padding:28px 16px; border-top:1px solid rgba(0,174,239,.25); border-bottom:1px solid rgba(0,174,239,.25);">
+          <p style="margin:0; font-size:1.05rem;">
+            <strong>Automação Digital e Integrações Inteligentes</strong> — fluxos com n8n, IA (GPT/RAG), APIs e Cloud.
+            <a href="/servicos-digitais.html" class="btn btn-primary" style="margin-left:12px;">Conheça</a>
+          </p>
+        </section>
+
         <!-- Nova Seção Serviços -->
         <section id="servicos" class="services" aria-labelledby="servicos-heading">
             <h2 id="servicos-heading">Nossos Serviços</h2>
@@ -245,6 +266,47 @@
             </div>
         </section>
 
+        <!-- NOVA Seção: Serviços Digitais na Home (4 cards) -->
+        <section id="servicos-digitais-home" class="section" aria-labelledby="sdh-heading">
+          <div class="container">
+            <header class="section-header">
+              <h2 id="sdh-heading">Automação Digital e Integrações Inteligentes</h2>
+              <p>Fluxos que unem pessoas, dados e tecnologia para empresas e profissionais.</p>
+            </header>
+
+            <div class="grid grid-4">
+              <article class="card">
+                <div class="card-icon" aria-hidden="true">🤖</div>
+                <h3>Automação de Fluxos (n8n)</h3>
+                <p>Bots, lembretes, geração de PDFs e integrações (WhatsApp, Supabase, Google Calendar, Notion, Asaas).</p>
+              </article>
+
+              <article class="card">
+                <div class="card-icon" aria-hidden="true">🧠</div>
+                <h3>IA Aplicada</h3>
+                <p>Agentes com GPT e RAG, chatbots e agendamentos automáticos para clínicas e e-commerces.</p>
+              </article>
+
+              <article class="card">
+                <div class="card-icon" aria-hidden="true">☁️</div>
+                <h3>Cloud & DevOps</h3>
+                <p>n8n em VPS, Supabase, Docker, Traefik, SSL e backups automatizados.</p>
+              </article>
+
+              <article class="card">
+                <div class="card-icon" aria-hidden="true">🔗</div>
+                <h3>Integrações Personalizadas</h3>
+                <p>APIs e webhooks para vendas, CRM e notificações em tempo real.</p>
+              </article>
+            </div>
+
+            <div class="section-cta" style="text-align:center; margin-top:24px;">
+              <a href="/servicos-digitais.html" class="btn btn-outline">Ver detalhes</a>
+              <a href="https://wa.me/5514999101050?text=Quero%20automatizar%20meu%20neg%C3%B3cio" class="btn btn-primary">Fale com Sérgio Braz</a>
+            </div>
+          </div>
+        </section>
+
         <!-- Nova Seção Diferenciais -->
         <section id="diferenciais" class="features">
             <h2>Por que escolher a Nexus Home LP?</h2>
@@ -277,62 +339,13 @@
               "@context": "https://schema.org",
               "@type": "FAQPage",
               "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "O que é automação residencial?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Automação residencial é um conjunto de tecnologias que permite controlar diversos aspectos da sua casa como iluminação, climatização, segurança e entretenimento de forma integrada e inteligente."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "O que é Zigbee e por que é importante na automação?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Zigbee é um protocolo de comunicação sem fio, específico para automação, que oferece alta confiabilidade, baixo consumo de energia e excelente alcance. É ideal para automação residencial pois permite conectar centenas de dispositivos sem interferência, formando uma rede mesh onde cada dispositivo funciona como repetidor de sinal."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Quais são os beneficios da automação residencial?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Os principais benefícios incluem maior conforto, economia de energia, aumento da segurança, valorização do imóvel e praticidade no dia a dia. Você pode controlar sua casa remotamente e criar rotinas automatizadas para diferentes momentos."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Posso automatizar uma casa já construída?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sim! Existem soluções de automação que não exigem obras ou mudanças estruturais. Utilizamos tecnologias sem fio e dispositivos que podem ser instalados sobre a infraestrutura existente, minimizando intervenções na sua casa."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Qual o investimento mínimo para começar?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "A automação pode ser implementada gradualmente, começando com sistemas básicos como controle de iluminação ou segurança. O investimento inicial varia conforme suas necessidades, mas temos opções para diferentes orçamentos. Entre em contato para uma avaliação personalizada."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Quanto tempo leva para instalar um sistema de automação?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "O tempo de instalação varia de acordo com a complexidade do projeto. Sistemas básicos podem ser instalados em 1-2 dias, enquanto projetos completos podem levar algumas semanas. Trabalhamos para minimizar transtornos durante a instalação."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Vocês oferecem suporte técnico após a instalação?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sim, oferecemos suporte técnico completo após a instalação. Nossos planos de manutenção incluem visitas periódicas, suporte remoto e atendimento emergencial para garantir que seu sistema funcione sempre perfeitamente."
-                  }
-                }
+                {"@type": "Question","name": "O que é automação residencial?","acceptedAnswer": {"@type": "Answer","text": "Automação residencial é um conjunto de tecnologias que permite controlar diversos aspectos da sua casa como iluminação, climatização, segurança e entretenimento de forma integrada e inteligente."}},
+                {"@type": "Question","name": "O que é Zigbee e por que é importante na automação?","acceptedAnswer": {"@type": "Answer","text": "Zigbee é um protocolo de comunicação sem fio, específico para automação, que oferece alta confiabilidade, baixo consumo de energia e excelente alcance. É ideal para automação residencial pois permite conectar centenas de dispositivos sem interferência, formando uma rede mesh onde cada dispositivo funciona como repetidor de sinal."}},
+                {"@type": "Question","name": "Quais são os beneficios da automação residencial?","acceptedAnswer": {"@type": "Answer","text": "Os principais benefícios incluem maior conforto, economia de energia, aumento da segurança, valorização do imóvel e praticidade no dia a dia. Você pode controlar sua casa remotamente e criar rotinas automatizadas para diferentes momentos."}},
+                {"@type": "Question","name": "Posso automatizar uma casa já construída?","acceptedAnswer": {"@type": "Answer","text": "Sim! Existem soluções de automação que não exigem obras ou mudanças estruturais. Utilizamos tecnologias sem fio e dispositivos que podem ser instalados sobre a infraestrutura existente, minimizando intervenções na sua casa."}},
+                {"@type": "Question","name": "Qual o investimento mínimo para começar?","acceptedAnswer": {"@type": "Answer","text": "A automação pode ser implementada gradualmente, começando com sistemas básicos como controle de iluminação ou segurança. O investimento inicial varia conforme suas necessidades, mas temos opções para diferentes orçamentos. Entre em contato para uma avaliação personalizada."}},
+                {"@type": "Question","name": "Quanto tempo leva para instalar um sistema de automação?","acceptedAnswer": {"@type": "Answer","text": "O tempo de instalação varia de acordo com a complexidade do projeto. Sistemas básicos podem ser instalados em 1-2 dias, enquanto projetos completos podem levar algumas semanas. Trabalhamos para minimizar transtornos durante a instalação."}},
+                {"@type": "Question","name": "Vocês oferecem suporte técnico após a instalação?","acceptedAnswer": {"@type": "Answer","text": "Sim, oferecemos suporte técnico completo após a instalação. Nossos planos de manutenção incluem visitas periódicas, suporte remoto e atendimento emergencial para garantir que seu sistema funcione sempre perfeitamente."}}
               ]
             }
             </script>
@@ -493,16 +506,17 @@
         <section id="social-share" class="social-share">
             <h2>Compartilhe nas Redes Sociais</h2>
             <div class="social-buttons">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.nexushomelp.com.br" target="_blank" aria-label="Compartilhar no Facebook">
+                <!-- Correção: usar domínio tec.br -->
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://nexushomelp.tec.br" target="_blank" aria-label="Compartilhar no Facebook">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="https://twitter.com/intent/tweet?url=https://www.nexushomelp.com.br&text=Confira%20este%20site!" target="_blank" aria-label="Compartilhar no Twitter">
+                <a href="https://twitter.com/intent/tweet?url=https://nexushomelp.tec.br&text=Confira%20este%20site!" target="_blank" aria-label="Compartilhar no Twitter">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.nexushomelp.com.br" target="_blank" aria-label="Compartilhar no LinkedIn">
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nexushomelp.tec.br" target="_blank" aria-label="Compartilhar no LinkedIn">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="https://api.whatsapp.com/send?text=Confira%20este%20site!%20https://www.nexushomelp.com.br" target="_blank" aria-label="Compartilhar no WhatsApp">
+                <a href="https://api.whatsapp.com/send?text=Confira%20este%20site!%20https://nexushomelp.tec.br" target="_blank" aria-label="Compartilhar no WhatsApp">
                     <i class="fab fa-whatsapp"></i>
                 </a>
             </div>
@@ -513,31 +527,31 @@
             <h2>Últimas Notícias</h2>
             <div class="blog-grid">
                 <article class="blog-post">
-                    <img src="images/zigbee-meta.jpg?v=20250326-2" loading="eager" fetchpriority="high" alt="Imagem sobre Zigbee" width="300" height="200" style="display: block; max-width: 100%; object-fit: cover;">
+                    <img src="images/zigbee-meta.jpg?v=20250326-2" loading="lazy" alt="Imagem sobre Zigbee" width="300" height="200" style="display: block; max-width: 100%; object-fit: cover;">
                     <h3>Como o Zigbee Está Transformando a Automação Residencial</h3>
                     <p>O Zigbee é um protocolo de comunicação sem fio projetado para redes de baixa potência...</p>
                     <a href="post-zigbee.html" class="read-more">Leia mais</a>
                 </article>
                 <article class="blog-post">
-                    <img src="images/home.png?v=20250326" loading="eager" fetchpriority="high" alt="imagem homeassistant" width="300" height="200" style="display: block; max-width: 100%; object-fit: cover;">
+                    <img src="images/home.png?v=20250326" loading="lazy" alt="imagem homeassistant" width="300" height="200" style="display: block; max-width: 100%; object-fit: cover;">
                     <h3>Afinal, o que é o Home Assistant</h3>
                     <p>O Home Assistant é uma plataforma de automação residencial de código aberto que permite ...</p>
                     <a href="post-smart-home.html" class="read-more">Leia mais</a>
                 </article>
                 <article class="blog-post">
-                    <img src="images/tendencias.jpg?v=20250326" loading="eager" fetchpriority="high" alt="novidades" width="300" height="200" style="display: block; max-width: 100%;">
+                    <img src="images/tendencias.jpg?v=20250326" loading="lazy" alt="novidades" width="300" height="200" style="display: block; max-width: 100%;">
                     <h3>As últimas tendências para 2025</h3>
                     <p>A automação residencial tem evoluído significativamente, incorporando tecnologias avançadas para...</p>
                     <a href="post-tendencias.html" class="read-more">Leia mais</a>
                 </article>
                 <article class="blog-post">
-                    <img src="images/multi.jpg?v=20250326-2" loading="eager" fetchpriority="high" alt="multiroom" width="300" height="200" style="display: block; max-width: 100%; object-fit: cover;">
+                    <img src="images/multi.jpg?v=20250326-2" loading="lazy" alt="multiroom" width="300" height="200" style="display: block; max-width: 100%; object-fit: cover;">
                     <h3>Saiba o que é o sistema Multiroom</h3>
                     <p>Um sistema de áudio multiroom é uma solução tecnológica que...</p>
                     <a href="post-multiroom.html" class="read-more">Leia mais</a>
                 </article>
                 <article class="blog-post">
-                    <img src="images/acessibilidade.jpg?v=20250326" loading="eager" fetchpriority="high" alt="acessibilidade" width="300" height="200" style="display: block; max-width: 100%;">
+                    <img src="images/acessibilidade.jpg?v=20250326" loading="lazy" alt="acessibilidade" width="300" height="200" style="display: block; max-width: 100%;">
                     <h3>A importância da automação residencial para a acessibilidade</h3>
                     <p>Acompanhe a reportagem da Revista Casa e Jardim...</p>
                     <a href="reportagem.html" class="read-more">Leia mais</a>
@@ -578,6 +592,7 @@
                     <li><a href="privacidade.html">Política de Privacidade</a></li>
                 </ul>
             </div>
+            <p class="footer-cta" style="margin-top:12px;">🚀 Quer automatizar seu negócio? <a href="/servicos-digitais.html">Conheça os Serviços Digitais</a> ou fale com <a href="https://wa.me/5514999101050">Sérgio Braz</a>.</p>
             <p class="copyright">&copy; 2024 Nexus Home LP. Todos os direitos reservados.</p>
             <p>Atendemos <strong>Lençóis Paulista</strong>, <strong>Bauru</strong> e região.</p>
         </div>
