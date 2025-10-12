@@ -120,7 +120,7 @@ nav {
     nav {
         padding: 1.5rem 3%;
     }
-
+    
     .nav-links {
         gap: 1.5rem;
     }
@@ -253,11 +253,11 @@ img {
     .logo {
         margin-right: 1rem;
     }
-
+    
     .nav-links {
         gap: 1rem;
     }
-
+    
     .company-name {
         font-size: 2rem;
     }
@@ -269,13 +269,13 @@ img {
     header {
         position: relative;
     }
-
+    
     .logo {
         width: 100%;
         justify-content: space-between;
         padding-right: 3rem;
     }
-
+    
     .logo img {
         height: 60px;
     }
@@ -324,7 +324,7 @@ img {
         min-height: 100vh;
         justify-content: flex-start;
     }
-
+    
     .hero-spacer {
         height: 120px; /* Altura maior em dispositivos móveis */
     }
@@ -376,37 +376,37 @@ img {
     .hero-icons {
         -webkit-overflow-scrolling: touch;
     }
-
+    
     /* Ajustes para imagens em mobile */
     img {
         max-width: 100%;
         height: auto;
     }
-
+    
     /* Ajustes para blog posts em mobile */
     .blog-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-
+    
     .blog-post img {
         height: auto;
     }
-
+    
     /* Ajustes para seção de serviços em mobile */
     .services-grid {
         grid-template-columns: 1fr;
     }
-
+    
     /* Ajustes para seção de contato em mobile */
     .contact-container {
         flex-direction: column;
     }
-
+    
     .contact-form, .contact-info {
         width: 100%;
     }
-
+    
     .tech-icon {
         width: 70px;
         height: 70px;
@@ -784,7 +784,7 @@ img {
         padding: 1rem;
         text-align: center;
     }
-
+    
     .cookie-text, .cookie-buttons {
         width: 100%;
         justify-content: center;
@@ -894,7 +894,7 @@ footer {
     .logo img {
         height: 50px; /* Ajustar tamanho do logotipo */
     }
-
+    
     .company-name {
         font-size: 1.5rem; /* Ajustar tamanho da fonte do nome da empresa */
     }
@@ -1132,27 +1132,27 @@ details[open] .faq-question::after {
     .nav-links {
         display: none; /* Esconder menu de navegação em telas pequenas */
     }
-
+    
     /* Melhorias para a seção de notícias em dispositivos móveis */
     .blog-section {
         padding: 2rem 0.5rem;
     }
-
+    
     .blog-section h2 {
         font-size: 2rem;
         margin-bottom: 1.5rem;
     }
-
+    
     .blog-post h3 {
         font-size: 1.1rem;
         margin: 0.75rem;
     }
-
+    
     .blog-post p {
         font-size: 0.9rem;
         padding: 0 0.75rem;
     }
-
+    
     .read-more {
         margin: 0.75rem;
         padding: 0.4rem 0.8rem;
