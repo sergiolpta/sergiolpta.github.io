@@ -1460,3 +1460,84 @@ main > section:first-child:not(.hero) {
     color: #3da278;
     text-decoration: underline;
 }
+
+<!-- === CSS específico do novo FAQ (mova para styles4.8.css se preferir) === -->
+<style>
+.faq-section { padding: 64px 0; }
+.faq-title { margin-bottom: 16px; }
+
+.faq-controls {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.faq-tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+.faq-tab {
+  background: #0f172a; color: #e2e8f0; border: 1px solid #334155;
+  padding: 8px 12px; border-radius: 10px; cursor: pointer;
+  transition: transform .08s ease;
+}
+.faq-tab:hover { transform: translateY(-1px); }
+.faq-tab.is-active { background: #0ea5e9; border-color: #0284c7; color: #0b1220; font-weight: 600; }
+.faq-search { width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid #cbd5e1; }
+.faq-search:focus { outline: 2px solid #0ea5e9; border-color: #0ea5e9; }
+.faq-search-label { position: absolute; left: -9999px; }
+
+.faq-panels { margin-top: 8px; }
+.faq-panel { display: none; }
+.faq-panel.is-active { display: block; }
+
+.faq-item { margin-bottom: 10px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff; }
+.faq-question { padding: 14px 16px; font-weight: 600; cursor: pointer; }
+.faq-answer { padding: 0 16px 16px; color: #334155; }
+
+@media (max-width: 900px) {
+  .faq-controls { grid-template-columns: 1fr; }
+}
+</style>
+
+<!-- === JS leve: abas + busca (cole antes do </body>, após seus outros scripts) === -->
+<script>
+(function () {
+  // Tabs
+  const tabs = document.querySelectorAll('.faq-tab');
+  const panels = document.querySelectorAll('.faq-panel');
+
+  function activateTab(tab) {
+    tabs.forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
+    panels.forEach(p => p.classList.remove('is-active'));
+    tab.classList.add('is-active');
+    tab.setAttribute('aria-selected', 'true');
+    const panel = document.getElementById(tab.getAttribute('aria-controls'));
+    if (panel) panel.classList.add('is-active');
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => activateTab(tab));
+    tab.addEventListener('keydown', (e) => {
+      // Acessibilidade via setas
+      const idx = Array.from(tabs).indexOf(tab);
+      if (e.key === 'ArrowRight') { e.preventDefault(); activateTab(tabs[(idx + 1) % tabs.length]); tabs[(idx + 1) % tabs.length].focus(); }
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); activateTab(tabs[(idx - 1 + tabs.length) % tabs.length]); tabs[(idx - 1 + tabs.length) % tabs.length].focus(); }
+    });
+  });
+
+  // Busca
+  const searchInput = document.getElementById('faq-search');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    panels.forEach(panel => {
+      const items = panel.querySelectorAll('.faq-item');
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(q) ? '' : 'none';
+      });
+    });
+  });
+
+  // Aba inicial (Geral) já vem ativa pelo HTML; reforçamos:
+  document.getElementById('panel-geral')?.classList.add('is-active');
+})();
+</script>
