@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta tags SEO -->
+    <meta name="description" content="Serviços Digitais e Integrações em Lençóis Paulista e Bauru — automação de fluxos com n8n, agentes de IA (GPT/RAG), integrações via API/webhooks e Cloud & DevOps (Docker, Traefik, SSL, backups).">
+    <meta name="keywords" content="serviços digitais, automação de fluxos, n8n, integrações API, IA aplicada, chatbot, RAG, Cloud, DevOps, Docker, Traefik, SSL, Supabase, VPS, Lençóis Paulista, Bauru">
+    <meta name="author" content="Nexus Home LP">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="geo.region" content="BR-SP">
+    <meta name="geo.placename" content="Lençóis Paulista">
+
+    <!-- CSP (mantendo seu padrão) -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+        img-src 'self' https://images.unsplash.com data: https://www.google-analytics.com;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+        connect-src 'self' https://formspree.io https://www.google-analytics.com;
+        frame-src 'none';
+        object-src 'none';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Serviços Digitais e Integrações | Nexus Home LP">
+    <meta property="og:description" content="Automação de fluxos com n8n, IA aplicada (GPT/RAG), integrações via API/webhooks e Cloud & DevOps (Docker, Traefik, SSL, backups).">
+    <meta property="og:image" content="https://nexushomelp.tec.br/images/servicos-digitais.jpg">
+    <meta property="og:url" content="https://nexushomelp.tec.br/servicos-digitais.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nexus Home LP">
+    <meta property="og:locale" content="pt_BR">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Serviços Digitais e Integrações | Nexus Home LP">
+    <meta name="twitter:description" content="Fluxos n8n, agentes de IA, integrações via API e infraestrutura em nuvem.">
+    <meta name="twitter:image" content="https://nexushomelp.tec.br/images/servicos-digitais.jpg">
+    
+    <!-- Recursos -->
+    <link rel="stylesheet" href="styles4.8.css">
+    <link rel="stylesheet" href="styles-servicos.css">
+    <link rel="canonical" href="https://nexushomelp.tec.br/servicos-digitais.html">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Preload -->
+    <link rel="preload" href="styles4.8.css" as="style">
+    <link rel="preload" href="images/logo.jpg" as="image">
+    <link rel="preload" href="js/cookies.js" as="script">
+    
+    <!-- DNS prefetch -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- Font Awesome (igual ao template) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <title>Serviços Digitais e Integrações | Nexus Home LP</title>
+
+    <!-- Ícones PWA/MS -->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="images/android-chrome-192x192.png">
+    <meta name="msapplication-config" content="browserconfig.xml">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.jpg?v=20250326" loading="eager" fetchpriority="high" alt="Nexus Home LP Logo" width="90" height="90" style="display: block; max-width: 100%;">
+            </a>
+            <span class="company-name">Nexus&#8202;<i class="fas fa-wifi"></i>&#8202;Home LP</span>
+        </div>
+        <button class="menu-toggle" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#servicos">Serviços</a></li>
+                <li><a href="index.html#diferenciais">Diferenciais</a></li>
+                <li><a href="index.html#faq">Perguntas Frequentes</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+            </ul>
+        </nav>
+
+        <!-- Breadcrumbs -->
+        <nav aria-label="Breadcrumb" class="breadcrumbs">
+            <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="index.html" itemprop="item"><span itemprop="name">Início</span></a>
+                    <meta itemprop="position" content="1">
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="index.html#servicos" itemprop="item"><span itemprop="name">Serviços</span></a>
+                    <meta itemprop="position" content="2">
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span itemprop="name" aria-current="page">Serviços Digitais e Integrações</span>
+                    <meta itemprop="position" content="3">
+                </li>
+            </ol>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Banner -->
+        <section class="service-banner" aria-labelledby="service-heading">
+            <h1 id="service-heading">Serviços Digitais e Integrações</h1>
+            <p class="service-tagline">Automação de fluxos com n8n, IA aplicada, APIs e Cloud & DevOps</p>
+        </section>
+
+        <!-- Visão geral -->
+        <section class="service-overview" aria-labelledby="overview-heading">
+            <div class="container">
+                <h2 id="overview-heading">O que é Automação Digital e Integrações?</h2>
+                <div class="overview-content">
+                    <div class="overview-text full-width">
+                        <p>Automação Digital é a construção de fluxos que unem pessoas, dados e tecnologia, eliminando tarefas repetitivas e acelerando processos. Usamos n8n, integrações via API/webhooks e agentes de IA para conectar WhatsApp, Supabase, Google Calendar, Notion, Asaas e muito mais.</p>
+                        <p>Com pipelines bem projetados e infraestrutura estável (Docker, Traefik, SSL e backups), você ganha velocidade, escalabilidade e uma experiência de atendimento realmente inteligente — do lead ao pós-venda.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefícios -->
+        <section class="service-benefits" aria-labelledby="benefits-heading">
+            <div class="container">
+                <h2 id="benefits-heading">Benefícios dos Serviços Digitais</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <span class="material-icons-round">bolt</span>
+                        <h3>Produtividade</h3>
+                        <p>Automatize tarefas repetitivas e foque no que importa, reduzindo tempo operacional.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <span class="material-icons-round">deployed_code</span>
+                        <h3>Integrações</h3>
+                        <p>WhatsApp, Supabase, Google, Notion, Asaas e qualquer API com webhooks confiáveis.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <span class="material-icons-round">psychology</span>
+                        <h3>IA Aplicada</h3>
+                        <p>Agentes com GPT e RAG para suporte, agendamentos e conversas naturais.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <span class="material-icons-round">dns</span>
+                        <h3>Cloud & DevOps</h3>
+                        <p>Ambientes em Docker/Traefik com HTTPS, logs e backups automatizados.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <span class="material-icons-round">tune</span>
+                        <h3>Escalabilidade</h3>
+                        <p>Projetos modulares que crescem com seu negócio, sem reescrever tudo do zero.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <span class="material-icons-round">handshake</span>
+                        <h3>Experiência do Cliente</h3>
+                        <p>Respostas rápidas, lembretes e jornadas personalizadas em múltiplos canais.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Soluções -->
+        <section class="service-solutions" aria-labelledby="solutions-heading">
+            <div class="container">
+                <h2 id="solutions-heading">Nossas Soluções Digitais</h2>
+                <div class="solutions-list">
+                    <div class="solution-item">
+                        <h3>Automação de Fluxos (n8n)</h3>
+                        <p>Captura de leads, lembretes, geração de PDFs, ETL leve e notificações com integrações prontas.</p>
+                        <ul>
+                            <li>WhatsApp ↔ Supabase/Sheets</li>
+                            <li>Agendamentos e lembretes (Google Calendar)</li>
+                            <li>Webhooks, filas e retentativas</li>
+                        </ul>
+                    </div>
+                    <div class="solution-item">
+                        <h3>IA Aplicada (Agentes GPT/RAG)</h3>
+                        <p>Chatbots e agentes com base de conhecimento e memória para atendimento humanizado.</p>
+                        <ul>
+                            <li>RAG com Supabase (pgvector)</li>
+                            <li>Ferramentas/ações guiadas</li>
+                            <li>Tom empático e personalizado</li>
+                        </ul>
+                    </div>
+                    <div class="solution-item">
+                        <h3>Cloud & DevOps</h3>
+                        <p>Ambientes n8n/Supabase em VPS com segurança e observabilidade desde o dia 1.</p>
+                        <ul>
+                            <li>Docker + Traefik + HTTPS</li>
+                            <li>Backups automatizados</li>
+                            <li>Logs e monitoramento</li>
+                        </ul>
+                    </div>
+                    <div class="solution-item">
+                        <h3>Integrações Personalizadas</h3>
+                        <p>APIs, webhooks e conectores para CRM/ERP, pagamentos e notificações em tempo real.</p>
+                        <ul>
+                            <li>Asaas, Notion, Google, Meta</li>
+                            <li>Modelagem de payloads</li>
+                            <li>Documentação técnica</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como funciona -->
+        <section class="service-process" aria-labelledby="process-heading">
+            <div class="container">
+                <h2 id="process-heading">Como Funciona Nosso Processo</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Diagnóstico</h3>
+                        <p>Levantamos objetivos, ferramentas e dados para mapear oportunidades.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Projeto</h3>
+                        <p>Desenhamos fluxos, prompts e integrações alinhados ao seu negócio.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Implantação</h3>
+                        <p>Preparamos n8n/infra, segurança e rotinas de backup/monitoramento.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Treinamento</h3>
+                        <p>Capacitamos sua equipe para operar e evoluir os fluxos com autonomia.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <h3>Suporte</h3>
+                        <p>Oferecemos suporte contínuo e melhorias baseadas em métricas reais.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="service-cta" aria-labelledby="cta-heading">
+            <div class="container">
+                <h2 id="cta-heading">Quer automatizar seu negócio?</h2>
+                <p>Fale agora com a Nexus Home LP e dê o próximo passo com fluxos inteligentes, integrações e IA aplicada.</p>
+                <a href="index.html#contato" class="cta-button">Falar com Sérgio Braz</a>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="service-faq" aria-labelledby="faq-heading" itemscope itemtype="https://schema.org/FAQPage">
+            <div class="container">
+                <h2 id="faq-heading">Perguntas Frequentes</h2>
+                <div class="faq-list">
+                    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <h3 itemprop="name">É possível começar pequeno?</h3>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p>Sim. Trabalhamos de forma incremental, com entregas rápidas e escaláveis. Projetos simples em poucos dias; soluções completas em 2–4 semanas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <h3 itemprop="name">Vocês dão suporte após a implantação?</h3>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p>Sim, suporte e manutenção com monitoramento, backups e melhorias contínuas conforme as necessidades do negócio.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <h3 itemprop="name">Como ficam os custos?</h3>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p>Modelos sob medida. Começamos pelo essencial e evoluímos conforme ROI. Integrações e infraestrutura são dimensionadas para o seu estágio atual.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <h3 itemprop="name">É possível integrar sistemas legados?</h3>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <p>Sim. Avaliamos as APIs e formatos disponíveis e, quando necessário, criamos conectores para manter a continuidade operacional.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Nexus Home LP</h3>
+                <p>Tecnologia e conforto em perfeita harmonia</p>
+            </div>
+            <div class="footer-links">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#servicos">Serviços</a></li>
+                    <li><a href="index.html#diferenciais">Diferenciais</a></li>
+                    <li><a href="index.html#faq">Perguntas Frequentes</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                    <li><a href="privacidade.html">Política de Privacidade</a></li>
+                </ul>
+            </div>
+            <p class="copyright">&copy; 2025 Nexus Home LP. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js?v=1.4"></script>
+    <script>
+        // Menu mobile
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
+    <script src="js/cookies.js"></script>
+
+    <!-- JSON-LD: WebPage + Service -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Serviços Digitais e Integrações",
+        "description": "Automação de fluxos com n8n, IA aplicada (GPT/RAG), integrações via API/webhooks e Cloud & DevOps.",
+        "url": "https://nexushomelp.tec.br/servicos-digitais.html",
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://nexushomelp.tec.br/" },
+                { "@type": "ListItem", "position": 2, "name": "Serviços", "item": "https://nexushomelp.tec.br/#servicos" },
+                { "@type": "ListItem", "position": 3, "name": "Serviços Digitais e Integrações", "item": "https://nexushomelp.tec.br/servicos-digitais.html" }
+            ]
+        },
+        "mainEntity": {
+            "@type": "Service",
+            "name": "Serviços Digitais e Integrações",
+            "description": "Portfólio digital com n8n, agentes de IA, integrações via API e Cloud & DevOps.",
+            "provider": {
+                "@type": "LocalBusiness",
+                "name": "Nexus Home LP",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Rua Osvaldo Cruz, 23",
+                    "addressLocality": "Lençóis Paulista",
+                    "addressRegion": "SP",
+                    "postalCode": "18682-120",
+                    "addressCountry": "BR"
+                },
+                "telephone": "+55 14 99910-1050",
+                "email": "nexushomelp@gmail.com",
+                "url": "https://nexushomelp.tec.br/"
+            },
+            "areaServed": {
+                "@type": "City",
+                "name": "Lençóis Paulista"
+            },
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Catálogo de Serviços Digitais",
+                "itemListElement": [
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automação de Fluxos (n8n)" } },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IA Aplicada (Agentes GPT/RAG)" } },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud & DevOps" } },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Integrações Personalizadas" } }
+                ]
+            }
+        }
+    }
+    </script>
+
+    <!-- Scripts adicionais (consistência com seu template) -->
+    <script src="js/cache-control.js"></script>
+    <script src="js/image-optimizer.js"></script>
+</body>
+</html>
