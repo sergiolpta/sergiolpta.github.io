@@ -1,0 +1,12 @@
+title = "Nexus Home LP - Gitleaks Config"
+
+[allowlist]
+regexes = [
+  '''FAKE_KEY_[A-Z0-9]+''',
+  '''EXAMPLE_TOKEN_[A-Z0-9]+'''
+]
+paths = [
+  "docs/.*",
+  "examples/.*"
+]
+

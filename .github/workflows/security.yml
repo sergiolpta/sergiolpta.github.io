@@ -1,0 +1,35 @@
+name: Security Scan (Gitleaks)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  schedule:
+    - cron: "0 3 * * 1" # Segundas 03:00 UTC (~00:00 em São Paulo)
+
+permissions:
+  contents: read
+
+jobs:
+  gitleaks:
+    name: Run Gitleaks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository (full history)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # necessário para varrer TODO o histórico
+
+      - name: Run Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        with:
+          args: detect --redact --report-path gitleaks-report.json
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gitleaks-report
+          path: gitleaks-report.json
+
