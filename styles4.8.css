@@ -48,13 +48,35 @@ header {
     z-index: 1000;
 }
 
-/* Corrige o alinhamento do menu principal */
-nav ul {
+/* === Correção: Menu principal em linha única === */
+header nav {
   display: flex;
-  flex-wrap: nowrap;      /* impede quebra de linha */
-  justify-content: center; /* centraliza os itens */
+  flex-wrap: nowrap;        /* impede quebra */
+  justify-content: flex-end; /* alinha à direita (ou troque por center/space-between) */
   align-items: center;
-  gap: 16px;               /* controla o espaço entre os itens */
+  gap: 16px;
+  flex-grow: 1;
+}
+
+header nav ul {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header nav li {
+  display: inline-block;
+  white-space: nowrap;       /* evita quebra do texto */
+}
+
+header nav a {
+  text-decoration: none;
+  padding: 6px 10px;
+  font-size: 0.95rem;
 }
 
 nav li {
