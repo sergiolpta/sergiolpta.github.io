@@ -48,6 +48,21 @@ header {
     z-index: 1000;
 }
 
+/* Corrige o alinhamento do menu principal */
+nav ul {
+  display: flex;
+  flex-wrap: nowrap;      /* impede quebra de linha */
+  justify-content: center; /* centraliza os itens */
+  align-items: center;
+  gap: 16px;               /* controla o espaço entre os itens */
+}
+
+nav li {
+  display: inline-block;
+  white-space: nowrap;     /* evita quebra dentro de um item longo */
+}
+
+
 nav {
     display: flex;
     justify-content: space-between;
